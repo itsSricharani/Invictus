@@ -90,3 +90,5 @@ def calculate_percentage_change(previous_value, current_value):
         (current_value - previous_value)
         / previous_value
     ) * 100
+
+    
