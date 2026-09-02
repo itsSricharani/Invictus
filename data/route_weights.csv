@@ -1,0 +1,5 @@
+route,weight
+DEL-BOM,0.35
+DEL-BLR,0.25
+BOM-BLR,0.22
+DEL-HYD,0.18
