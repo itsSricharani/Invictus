@@ -51,10 +51,19 @@ WEIGHTS_FILE = "data/route_weights.csv"
 
 
 @app.get("/")
-def home(request: Request):
+def landing(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="index.html",
+        name="landing.html",
+        context={}
+    )
+
+
+@app.get("/dashboard")
+def dashboard(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="dashboard.html",
         context={}
     )
 
