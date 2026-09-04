@@ -31,45 +31,44 @@ function formatDate(dateString) {
 
 async function loadDashboard() {
 
-    try {
+    const [
+        indexResult,
+        historyResult,
+        leadTimeResult,
+        qualityResult
+    ] = await Promise.allSettled([
+        fetchData("/index"),
+        fetchData("/index/history"),
+        fetchData("/lead-times"),
+        fetchData("/data-quality")
+    ]);
 
-        const [
-            indexData,
-            historyData,
-            leadTimeData,
-            qualityData
-        ] = await Promise.all([
-            fetchData("/index"),
-            fetchData("/index/history"),
-            fetchData("/lead-times"),
-            fetchData("/data-quality")
-        ]);
-
-
-        loadIndex(indexData);
-
-        loadHistoryChart(historyData);
-
-        loadRoutes(indexData);
-
-        loadLeadTimes(leadTimeData);
-
-        loadQuality(qualityData);
-
+    if (indexResult.status === "fulfilled") {
+        loadIndex(indexResult.value);
+        loadRoutes(indexResult.value);
+    } else {
+        console.error("Index failed:", indexResult.reason);
+        document.getElementById("national-index").textContent = "Error";
+        document.getElementById("index-change").textContent =
+            "Unable to load index data";
     }
-    catch (error) {
 
-        console.error(error);
+    if (historyResult.status === "fulfilled") {
+        loadHistoryChart(historyResult.value);
+    } else {
+        console.error("History failed:", historyResult.reason);
+    }
 
-        document.getElementById(
-            "national-index"
-        ).textContent = "Error";
+    if (leadTimeResult.status === "fulfilled") {
+        loadLeadTimes(leadTimeResult.value);
+    } else {
+        console.error("Lead times failed:", leadTimeResult.reason);
+    }
 
-        document.getElementById(
-            "index-change"
-        ).textContent =
-            "Unable to connect to API";
-
+    if (qualityResult.status === "fulfilled") {
+        loadQuality(qualityResult.value);
+    } else {
+        console.error("Data quality failed:", qualityResult.reason);
     }
 
 }

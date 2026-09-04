@@ -1,16 +1,18 @@
+import time
 from datetime import datetime, timedelta
 
 import pandas as pd
 
 from scraper.mock_scraper import MockScraper
-from scraper.indigo_scraper import IndigoScraper
+from scraper.google_flights_scraper import fetch_route_fares
 
 from scraper.config import (
     ROUTES,
     AIRLINES,
     LEAD_TIMES,
     DATA_FILE,
-    ACTIVE_SOURCE
+    ACTIVE_SOURCE,
+    ROUTE_AIRPORTS
 )
 
 from scraper.storage import (
@@ -20,50 +22,44 @@ from scraper.storage import (
 )
 
 
-def get_scraper():
+def _build_record(
+    collection_date,
+    collection_time,
+    departure_date,
+    route,
+    airline,
+    lead_time,
+    result
+):
+    return {
+        "collection_date": collection_date,
+        "collection_time": collection_time,
+        "date": collection_date,
+        "departure_date": departure_date,
+        "route": route,
+        "airline": airline,
+        "source": ACTIVE_SOURCE,
+        "lead_time": lead_time,
+        "base_fare": result.get("base_fare"),
+        "taxes": result.get("taxes"),
+        "fees": result.get("fees"),
+        "total_fare": result["total_fare"],
+        "availability": result.get("availability", "available")
+    }
 
-    if ACTIVE_SOURCE == "mock":
-        return MockScraper()
 
-    if ACTIVE_SOURCE == "indigo":
-        return IndigoScraper(headless=True)
-
-    raise ValueError(
-        f"Unknown source: {ACTIVE_SOURCE}"
-    )
-
-
-def collect_fares():
-
-    scraper = get_scraper()
-
+def _collect_mock(collection_date, collection_time, now):
+    scraper = MockScraper()
     records = []
 
-    now = datetime.now()
-
-    collection_date = now.date().isoformat()
-    collection_time = now.strftime("%H:%M:%S")
-
     for route in ROUTES:
-
         for airline in AIRLINES:
-
-            # The current IndigoScraper only supports IndiGo.
-            if (
-                ACTIVE_SOURCE == "indigo"
-                and airline != "IndiGo"
-            ):
-                continue
-
             for lead_time in LEAD_TIMES:
-
                 departure_date = (
-                    now.date()
-                    + timedelta(days=lead_time)
+                    now.date() + timedelta(days=lead_time)
                 ).isoformat()
 
                 try:
-
                     result = scraper.fetch_fares(
                         route=route,
                         airline=airline,
@@ -71,70 +67,110 @@ def collect_fares():
                         departure_date=departure_date
                     )
 
-                    record = {
-                        "collection_date": collection_date,
-                        "collection_time": collection_time,
-                        "date": collection_date,
-                        "departure_date": departure_date,
-                        "route": route,
-                        "airline": airline,
-                        "source": ACTIVE_SOURCE,
-                        "lead_time": lead_time,
-                        "base_fare": result.get(
-                            "base_fare"
-                        ),
-                        "taxes": result.get(
-                            "taxes"
-                        ),
-                        "fees": result.get(
-                            "fees"
-                        ),
-                        "total_fare": result[
-                            "total_fare"
-                        ],
-                        "availability": result.get(
-                            "availability",
-                            "available"
-                        )
-                    }
+                    record = _build_record(
+                        collection_date, collection_time, departure_date,
+                        route, airline, lead_time, result
+                    )
 
                     records.append(record)
 
                     print(
-                        f"Collected: "
-                        f"{route} | "
-                        f"{airline} | "
-                        f"T+{lead_time} | "
-                        f"₹{record['total_fare']}"
+                        f"Collected: {route} | {airline} | "
+                        f"T+{lead_time} | ₹{record['total_fare']}"
                     )
 
                 except Exception as error:
+                    print(f"Failed: {route} | {airline} | T+{lead_time}")
+                    print(f"Error: {error}")
 
-                    print(
-                        f"Failed: "
-                        f"{route} | "
-                        f"{airline} | "
-                        f"T+{lead_time}"
-                    )
+    return records
 
+
+def _collect_google_flights(collection_date, collection_time, now):
+    records = []
+
+    for route in ROUTES:
+        airports = ROUTE_AIRPORTS[route]
+        origin = airports["origin"]
+        destination = airports["destination"]
+
+        for lead_time in LEAD_TIMES:
+            departure_date = (
+                now.date() + timedelta(days=lead_time)
+            ).isoformat()
+
+            try:
+                fares_by_airline = fetch_route_fares(
+                    origin, destination, departure_date
+                )
+            except Exception as error:
+                print(f"Failed: {route} | T+{lead_time}")
+                print(f"Error: {error}")
+                continue
+
+            for airline in AIRLINES:
+                fare = fares_by_airline.get(airline)
+
+                if fare is None:
                     print(
-                        f"Error: {error}"
+                        f"No {airline} flights found: "
+                        f"{route} | T+{lead_time}"
                     )
+                    continue
+
+                result = {
+                    "base_fare": None,
+                    "taxes": None,
+                    "fees": None,
+                    "total_fare": fare,
+                    "availability": "available"
+                }
+
+                record = _build_record(
+                    collection_date, collection_time, departure_date,
+                    route, airline, lead_time, result
+                )
+
+                records.append(record)
+
+                print(
+                    f"Collected: {route} | {airline} | "
+                    f"T+{lead_time} | ₹{fare}"
+                )
+
+            # Be polite to Google Flights between route/date queries.
+            time.sleep(1)
+
+    return records
+
+
+def collect_fares():
+    now = datetime.now()
+
+    collection_date = now.date().isoformat()
+    collection_time = now.strftime("%H:%M:%S")
+
+    if ACTIVE_SOURCE == "mock":
+        records = _collect_mock(collection_date, collection_time, now)
+
+    elif ACTIVE_SOURCE == "google_flights":
+        records = _collect_google_flights(
+            collection_date, collection_time, now
+        )
+
+    else:
+        raise ValueError(f"Unknown source: {ACTIVE_SOURCE}")
 
     return pd.DataFrame(records)
 
 
 def run_collection():
 
-    print(
-        "\nStarting fare collection...\n"
-    )
+    print("\nStarting fare collection...\n")
 
     new_data = collect_fares()
 
-    existing_data = load_existing_data(
-        DATA_FILE
-    )
+    existing_data = load_existing_data(DATA_FILE)
 
     new_records = remove_duplicate_records(
         new_data,
@@ -153,21 +189,10 @@ def run_collection():
         - len(new_records)
     )
 
-    print(
-        "\nCollection complete."
-    )
-
-    print(
-        f"Total collected: {collected_count}"
-    )
-
-    print(
-        f"New records saved: {saved_count}"
-    )
-
-    print(
-        f"Duplicates skipped: {duplicate_count}"
-    )
+    print("\nCollection complete.")
+    print(f"Total collected: {collected_count}")
+    print(f"New records saved: {saved_count}")
+    print(f"Duplicates skipped: {duplicate_count}")
 
     return {
         "collected": collected_count,

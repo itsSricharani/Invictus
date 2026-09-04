@@ -7,7 +7,9 @@ ROUTES = [
 
 AIRLINES = [
     "IndiGo",
-    "Air India"
+    "Air India",
+    "SpiceJet",
+    "Akasa Air"
 ]
 
 LEAD_TIMES = [1, 7, 15, 30, 45]
@@ -33,4 +35,6 @@ ROUTE_AIRPORTS = {
 
 DATA_FILE = "data/raw_fares.csv"
 
-ACTIVE_SOURCE = "mock"
+# "mock" -> synthetic data (MockScraper)
+# "google_flights" -> real data via fast-flights, filtered to AIRLINES above
+ACTIVE_SOURCE = "google_flights"

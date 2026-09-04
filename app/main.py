@@ -1,5 +1,8 @@
 from sqlalchemy.orm import Session
 from fastapi import Depends
+from scraper.scheduler import start_scheduler
+from scraper.collector import run_collection
+from pipeline.cleaner import clean_fares
 
 from app.database import get_db
 from app.models import FareRecord
@@ -503,3 +506,15 @@ def get_fares(
         }
         for record in records
     ]
+
+@app.on_event("startup")
+def on_startup():
+    start_scheduler()
+
+
+@app.post("/admin/collect-now")
+def trigger_collection_now():
+    """Manually trigger a collection run immediately (useful for demos —
+    don't wait for the 06:00 IST cron job)."""
+    result = run_collection()
+    return result

@@ -5,3 +5,5 @@ numpy
 pytest
 jinja2
 sqlalchemy
+fast-flights
+apscheduler

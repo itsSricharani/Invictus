@@ -10,7 +10,7 @@ def calculate_route_index(df, base_date, current_date):
 
     route_indices = (current_prices / base_prices) * 100
 
-    return route_indices
+    return route_indices.dropna()
 
 
 def calculate_lead_time_index(df, base_date, current_date):
@@ -22,7 +22,7 @@ def calculate_lead_time_index(df, base_date, current_date):
 
     lead_time_indices = (current_prices / base_prices) * 100
 
-    return lead_time_indices
+    return lead_time_indices.dropna()
 
 
 def calculate_weighted_national_index(route_indices, weights_df):
