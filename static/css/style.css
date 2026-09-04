@@ -502,3 +502,74 @@ footer strong {
     }
 
 }
+
+/* ---- Motion & polish additions ---- */
+
+.status-dot {
+    animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+    0%, 100% {
+        box-shadow: 0 0 0 0 rgba(65, 199, 122, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 0 6px rgba(65, 199, 122, 0);
+    }
+}
+
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.main-index-card,
+.info-card,
+.route-card,
+.lead-card,
+.quality-card,
+.chart-card {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.info-card:hover,
+.route-card:hover,
+.lead-card:hover,
+.quality-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 24px rgba(17, 19, 24, 0.08);
+}
+
+.main-index-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 32px rgba(17, 19, 24, 0.28);
+}
+
+.index-value {
+    font-variant-numeric: tabular-nums;
+}
+
+.route-value,
+.lead-value,
+.quality-value {
+    font-variant-numeric: tabular-nums;
+    transition: color 0.3s ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .status-dot {
+        animation: none;
+    }
+}

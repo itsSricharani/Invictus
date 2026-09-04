@@ -28,6 +28,53 @@ function formatDate(dateString) {
     );
 }
 
+function initScrollReveal() {
+    const targets = document.querySelectorAll(".reveal");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("is-visible");
+                    observer.unobserve(entry.target);
+                }
+            });
+        },
+        { threshold: 0.15 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+}
+
+
+function animateCountUp(element, targetValue, duration = 900) {
+    const startValue = 0;
+    const startTime = performance.now();
+
+    function step(now) {
+        const progress = Math.min(
+            (now - startTime) / duration,
+            1
+        );
+
+        // ease-out cubic
+        const eased = 1 - Math.pow(1 - progress, 3);
+
+        const current =
+            startValue + (targetValue - startValue) * eased;
+
+        element.textContent = current.toFixed(2);
+
+        if (progress < 1) {
+            requestAnimationFrame(step);
+        } else {
+            element.textContent = targetValue.toFixed(2);
+        }
+    }
+
+    requestAnimationFrame(step);
+}
+
 
 async function loadDashboard() {
 
@@ -76,10 +123,10 @@ async function loadDashboard() {
 
 function loadIndex(data) {
 
-    document.getElementById(
-        "national-index"
-    ).textContent =
-        data.national_index.toFixed(2);
+     animateCountUp(
+        document.getElementById("national-index"),
+        data.national_index
+    );
 
 
     document.getElementById(
@@ -377,7 +424,7 @@ function loadHistoryChart(data) {
 }
 
 
-document.addEventListener(
-    "DOMContentLoaded",
-    loadDashboard
-);
+document.addEventListener("DOMContentLoaded", () => {
+    initScrollReveal();
+    loadDashboard();
+});
