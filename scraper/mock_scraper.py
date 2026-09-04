@@ -10,7 +10,7 @@ class MockScraper(BaseScraper):
         route,
         airline,
         lead_time,
-        departure_date=None
+        departure_date
     ):
         base_prices = {
             "DEL-BOM": 5000,
@@ -51,4 +51,12 @@ class MockScraper(BaseScraper):
             * random_variation
         )
 
-        return round(fare, 2)
+        total_fare = round(fare, 2)
+
+        return {
+            "base_fare": None,
+            "taxes": None,
+            "fees": None,
+            "total_fare": total_fare,
+            "availability": "available"
+        }

@@ -1,10 +1,10 @@
 from datetime import datetime, timedelta
-from app.database import SessionLocal
 
-from app.repository import save_fare_records
 import pandas as pd
 
 from scraper.mock_scraper import MockScraper
+from scraper.indigo_scraper import IndigoScraper
+
 from scraper.config import (
     ROUTES,
     AIRLINES,
@@ -12,6 +12,7 @@ from scraper.config import (
     DATA_FILE,
     ACTIVE_SOURCE
 )
+
 from scraper.storage import (
     load_existing_data,
     remove_duplicate_records,
@@ -20,8 +21,12 @@ from scraper.storage import (
 
 
 def get_scraper():
+
     if ACTIVE_SOURCE == "mock":
         return MockScraper()
+
+    if ACTIVE_SOURCE == "indigo":
+        return IndigoScraper(headless=True)
 
     raise ValueError(
         f"Unknown source: {ACTIVE_SOURCE}"
@@ -29,6 +34,7 @@ def get_scraper():
 
 
 def collect_fares():
+
     scraper = get_scraper()
 
     records = []
@@ -39,7 +45,16 @@ def collect_fares():
     collection_time = now.strftime("%H:%M:%S")
 
     for route in ROUTES:
+
         for airline in AIRLINES:
+
+            # The current IndigoScraper only supports IndiGo.
+            if (
+                ACTIVE_SOURCE == "indigo"
+                and airline != "IndiGo"
+            ):
+                continue
+
             for lead_time in LEAD_TIMES:
 
                 departure_date = (
@@ -48,7 +63,8 @@ def collect_fares():
                 ).isoformat()
 
                 try:
-                    fare = scraper.fetch_fares(
+
+                    result = scraper.fetch_fares(
                         route=route,
                         airline=airline,
                         lead_time=lead_time,
@@ -56,40 +72,47 @@ def collect_fares():
                     )
 
                     record = {
-
                         "collection_date": collection_date,
-
                         "collection_time": collection_time,
-
                         "date": collection_date,
-
                         "departure_date": departure_date,
-
                         "route": route,
-
                         "airline": airline,
-
                         "source": ACTIVE_SOURCE,
-
                         "lead_time": lead_time,
-
-                        "total_fare": fare   
-
+                        "base_fare": result.get(
+                            "base_fare"
+                        ),
+                        "taxes": result.get(
+                            "taxes"
+                        ),
+                        "fees": result.get(
+                            "fees"
+                        ),
+                        "total_fare": result[
+                            "total_fare"
+                        ],
+                        "availability": result.get(
+                            "availability",
+                            "available"
+                        )
                     }
 
                     records.append(record)
 
                     print(
-                        f"Collected: {route} | "
+                        f"Collected: "
+                        f"{route} | "
                         f"{airline} | "
                         f"T+{lead_time} | "
-                        f"₹{fare}"
+                        f"₹{record['total_fare']}"
                     )
 
                 except Exception as error:
 
                     print(
-                        f"Failed: {route} | "
+                        f"Failed: "
+                        f"{route} | "
                         f"{airline} | "
                         f"T+{lead_time}"
                     )
@@ -103,7 +126,9 @@ def collect_fares():
 
 def run_collection():
 
-    print("\nStarting fare collection...\n")
+    print(
+        "\nStarting fare collection...\n"
+    )
 
     new_data = collect_fares()
 
@@ -121,25 +146,11 @@ def run_collection():
         DATA_FILE
     )
 
-    db = SessionLocal()
-
-    try:
-
-        database_result = save_fare_records(
-            db,
-            new_data.to_dict(
-                orient="records"
-            )
-        )
-
-    finally:
-
-        db.close()
-
     collected_count = len(new_data)
 
     duplicate_count = (
-        collected_count - len(new_records)
+        collected_count
+        - len(new_records)
     )
 
     print(
@@ -151,42 +162,18 @@ def run_collection():
     )
 
     print(
-        f"CSV records saved: {saved_count}"
+        f"New records saved: {saved_count}"
     )
 
     print(
-        f"CSV duplicates skipped: {duplicate_count}"
-    )
-
-    print(
-        f"Database records inserted: "
-        f"{database_result['inserted']}"
-    )
-
-    print(
-        f"Database duplicates skipped: "
-        f"{database_result['duplicates']}"
+        f"Duplicates skipped: {duplicate_count}"
     )
 
     return {
-
         "collected": collected_count,
-
-        "csv_saved": saved_count,
-
-        "csv_duplicates": duplicate_count,
-
-        "database_inserted": (
-            database_result["inserted"]
-        ),
-
-        "database_duplicates": (
-            database_result["duplicates"]
-        )
-
+        "saved": saved_count,
+        "duplicates": duplicate_count
     }
-
-    
 
 
 if __name__ == "__main__":

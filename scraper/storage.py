@@ -4,25 +4,19 @@ import pandas as pd
 
 
 REQUIRED_COLUMNS = [
-
     "collection_date",
-
     "collection_time",
-
     "date",
-
     "departure_date",
-
     "route",
-
     "airline",
-
     "source",
-
     "lead_time",
-
-    "total_fare"
-
+    "base_fare",
+    "taxes",
+    "fees",
+    "total_fare",
+    "availability"
 ]
 
 
@@ -69,47 +63,32 @@ def load_existing_data(file_path):
 def remove_duplicate_records(new_df, existing_df):
 
     if existing_df.empty:
-
         return new_df.copy()
 
     duplicate_columns = [
-
         "collection_date",
-
+        "collection_time",
+        "departure_date",
         "route",
-
         "airline",
-
         "source",
-
         "lead_time"
-
     ]
 
     existing_keys = set(
-
         existing_df[
             duplicate_columns
-        ].astype(str).apply(
-
-            tuple,
-
-            axis=1
-
-        )
-
+        ]
+        .astype(str)
+        .apply(tuple, axis=1)
     )
 
-    new_keys = new_df[
-
-        duplicate_columns
-
-    ].astype(str).apply(
-
-        tuple,
-
-        axis=1
-
+    new_keys = (
+        new_df[
+            duplicate_columns
+        ]
+        .astype(str)
+        .apply(tuple, axis=1)
     )
 
     mask = ~new_keys.isin(existing_keys)

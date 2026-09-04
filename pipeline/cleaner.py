@@ -79,3 +79,45 @@ def remove_outliers(df):
         cleaned_groups.append(group)
 
     return pd.concat(cleaned_groups, ignore_index=True)
+
+
+
+def clean_fares(df):
+
+    if df.empty:
+        return df.copy()
+
+    cleaned = df.copy()
+
+    cleaned = cleaned[
+        cleaned["availability"]
+        == "available"
+    ]
+
+    cleaned = cleaned[
+        cleaned["total_fare"].notna()
+    ]
+
+    cleaned = cleaned[
+        cleaned["total_fare"] > 0
+    ]
+
+    cleaned = cleaned[
+        cleaned["total_fare"] <= 100000
+    ]
+
+    cleaned = cleaned.drop_duplicates(
+        subset=[
+            "collection_date",
+            "collection_time",
+            "departure_date",
+            "route",
+            "airline",
+            "source",
+            "lead_time"
+        ]
+    )
+
+    return cleaned.reset_index(
+        drop=True
+    )

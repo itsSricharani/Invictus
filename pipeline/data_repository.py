@@ -58,43 +58,65 @@ def load_database_data():
 
 
 def load_unified_data(
-
-    sample_file="data/sample_fares.csv"
-
+    sample_file="data/sample_fares.csv",
+    raw_file="data/raw_fares.csv"
 ):
 
     datasets = []
 
-    # Historical sample data
-
     if os.path.exists(sample_file):
 
-        sample_df = pd.read_csv(sample_file)
+        sample_df = pd.read_csv(
+            sample_file
+        )
 
-        datasets.append(sample_df)
+        datasets.append(
+            sample_df
+        )
 
-    # Live collected data from SQLite
+    if os.path.exists(raw_file):
 
-    database_df = load_database_data()
+        raw_df = pd.read_csv(
+            raw_file
+        )
 
-    if not database_df.empty:
+        if not raw_df.empty:
 
-        datasets.append(database_df)
+            required_columns = [
+                "date",
+                "departure_date",
+                "route",
+                "airline",
+                "source",
+                "lead_time",
+                "total_fare"
+            ]
+
+            missing = [
+                column
+                for column in required_columns
+                if column not in raw_df.columns
+            ]
+
+            if not missing:
+
+                raw_df = raw_df[
+                    required_columns
+                ]
+
+                datasets.append(
+                    raw_df
+                )
 
     if not datasets:
 
         raise FileNotFoundError(
-
-            "No fare data sources found."
-
+            "No fare data files found."
         )
 
     unified_df = pd.concat(
-
         datasets,
-
         ignore_index=True
-
     )
 
     return unified_df

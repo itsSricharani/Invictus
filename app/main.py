@@ -1,3 +1,9 @@
+from sqlalchemy.orm import Session
+from fastapi import Depends
+
+from app.database import get_db
+from app.models import FareRecord
+
 from datetime import datetime
 from fastapi.responses import HTMLResponse
 from scraper.collection_service import collect_fares
@@ -14,6 +20,9 @@ from pipeline.index_calculator import (
     calculate_weighted_national_index,
     calculate_route_trend,
     calculate_historical_index  
+)
+from pipeline.index_service import (
+    get_index_data
 )
 
 
@@ -77,7 +86,7 @@ def get_system_status():
     }
 
 @app.get("/index")
-def get_index():
+def get_current_index():
 
     df = load_unified_data()
 
@@ -371,6 +380,66 @@ def get_summary():
 
     }
 
+@app.get("/summary")
+def get_summary(
+    db: Session = Depends(get_db)
+):
+
+    total_records = (
+        db.query(FareRecord)
+        .count()
+    )
+
+    routes = (
+        db.query(FareRecord.route)
+        .distinct()
+        .all()
+    )
+
+    airlines = (
+        db.query(FareRecord.airline)
+        .distinct()
+        .all()
+    )
+
+    sources = (
+        db.query(FareRecord.source)
+        .distinct()
+        .all()
+    )
+
+    return {
+        "total_records": total_records,
+        "routes": [
+            item[0]
+            for item in routes
+        ],
+        "airlines": [
+            item[0]
+            for item in airlines
+        ],
+        "sources": [
+            item[0]
+            for item in sources
+        ]
+    }
+
+@app.get("/system-status")
+def system_status(
+    db: Session = Depends(get_db)
+):
+
+    total_records = (
+        db.query(FareRecord)
+        .count()
+    )
+
+    return {
+        "status": "online",
+        "database": "connected",
+        "records": total_records
+    }
+
 @app.post("/collect")
 def collect_latest_fares():
 
@@ -386,3 +455,51 @@ def collect_latest_fares():
             status_code=500,
             detail=str(error)
         )
+
+@app.get("/fares")
+def get_fares(
+    route: str | None = None,
+    airline: str | None = None,
+    db: Session = Depends(get_db)
+):
+
+    query = db.query(FareRecord)
+
+    if route:
+
+        query = query.filter(
+            FareRecord.route == route
+        )
+
+    if airline:
+
+        query = query.filter(
+            FareRecord.airline == airline
+        )
+
+    records = (
+        query
+        .order_by(
+            FareRecord.id.desc()
+        )
+        .limit(100)
+        .all()
+    )
+
+    return [
+        {
+            "collection_date": record.collection_date,
+            "collection_time": record.collection_time,
+            "departure_date": record.departure_date,
+            "route": record.route,
+            "airline": record.airline,
+            "source": record.source,
+            "lead_time": record.lead_time,
+            "base_fare": record.base_fare,
+            "taxes": record.taxes,
+            "fees": record.fees,
+            "total_fare": record.total_fare,
+            "availability": record.availability
+        }
+        for record in records
+    ]
