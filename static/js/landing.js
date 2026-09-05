@@ -24,21 +24,7 @@ function initLandingReveal() {
     targets.forEach((target) => observer.observe(target));
 }
 
-async function loadLandingIndex() {
-    const el = document.getElementById("landingIndexValue");
-
-    try {
-        const response = await fetch("/index");
-        const data = await response.json();
-        el.textContent = data.national_index.toFixed(2);
-    } catch (error) {
-        el.textContent = "—";
-        console.error("Landing index fetch failed:", error);
-    }
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     openIntroPanel();
     initLandingReveal();
-    loadLandingIndex();
 });

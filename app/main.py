@@ -67,7 +67,13 @@ def dashboard(request: Request):
         context={}
     )
 
-
+@app.get("/about")
+def about(request: Request):
+    return templates.TemplateResponse(
+        request=request,
+        name="about.html",
+        context={}
+    )
 
 @app.get("/system-status")
 def get_system_status():

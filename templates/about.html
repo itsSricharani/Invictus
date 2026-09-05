@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — APIx</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/static/css/landing.css">
+</head>
+<body>
+
+    <div class="nav-wrapper" style="position: relative; top: 0; padding-top: 32px; background: linear-gradient(180deg, #2547c9 0%, #3f6be0 100%);">
+        <nav class="center-pill-nav">
+            <a href="/" class="pill-link">Home</a>
+            <a href="/about" class="pill-link">About Us</a>
+            <a href="/dashboard" class="pill-link">Explore</a>
+        </nav>
+    </div>
+
+    <header class="about-hero">
+        <h1>Why APIx exists</h1>
+        <p>
+            A transparent, automated, daily-refreshed airfare price
+            index for India — built to complement, not replace,
+            official inflation measurement.
+        </p>
+    </header>
+
+    <main class="about-content">
+
+        <div class="about-block reveal">
+            <h2>The Problem</h2>
+            <p>
+                India's Consumer Price Index tracks air travel costs
+                through periodic surveys, which move far slower than
+                actual fares do. Airfares change by the hour based on
+                demand, booking window, and route — a monthly or
+                quarterly snapshot misses that volatility entirely.
+                Nobody publishes a transparent, verifiable, frequently
+                updated airfare index built specifically to inform
+                economic policy.
+            </p>
+        </div>
+
+        <div class="about-block reveal">
+            <h2>What APIx Does</h2>
+            <p>
+                APIx automatically collects live fares across four
+                major domestic routes and four airlines every two
+                hours, cleans and deduplicates the data, and computes
+                route-level, lead-time, and a weighted national index
+                — all visible on the live dashboard with full
+                historical trend data.
+            </p>
+        </div>
+
+        <div class="about-block reveal">
+            <h2>Methodology</h2>
+            <p>
+                Each index is a ratio of current average fares to a
+                fixed base-period average, expressed on a 100-point
+                scale. Route indices isolate movement per city pair;
+                lead-time indices isolate how booking-window timing
+                tactics affect price, separate from genuine market
+                movement. The national index weights routes to reflect
+                overall travel demand.
+            </p>
+        </div>
+
+        <div class="about-block reveal">
+            <h2>Why It Matters for CPI</h2>
+            <p>
+                APIx is designed as a higher-frequency proxy that can
+                sit alongside existing CPI transport sub-index
+                methodology — giving policymakers a daily read on
+                airfare inflation between official survey cycles,
+                without replacing the rigor of the official process.
+            </p>
+        </div>
+
+        <div class="about-block reveal">
+            <h2>Built For</h2>
+            <p>
+                Smart India Hackathon — a prototype demonstrating that
+                automated, transparent, real-time economic indicators
+                are achievable with an open pipeline: scraping,
+                cleaning, index construction, and a public dashboard,
+                end to end.
+            </p>
+        </div>
+
+    </main>
+
+    <footer class="landing-footer">
+        <span>APIx &middot; Smart India Hackathon</span>
+        <a href="/dashboard" class="cta-button small">Get Data →</a>
+    </footer>
+
+    <script src="/static/js/landing.js"></script>
+</body>
+</html>

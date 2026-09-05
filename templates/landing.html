@@ -4,64 +4,43 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>APIx — Real-Time Airfare Price Index for India</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/static/css/landing.css">
 </head>
 <body>
 
     <div class="intro-panel" id="introPanel"></div>
 
-    <nav class="landing-nav">
-        <div class="brand">
-            <span class="logo">APIx</span>
-            <div class="brand-text">
-                <strong>APIx</strong>
-                <small>Airfare Price Index</small>
-            </div>
-        </div>
-        <a href="/dashboard" class="nav-link">Dashboard →</a>
-    </nav>
-
     <header class="sky-hero">
 
-        <div class="cloud-layer cloud-back">
-            <div class="cloud c1"></div>
-            <div class="cloud c2"></div>
-            <div class="cloud c3"></div>
+        <div class="grain-overlay"></div>
+
+        <div class="wave-layer">
+            <svg class="wave wave-back" viewBox="0 0 1440 220" preserveAspectRatio="none">
+                <path d="M0,110 C240,160 480,60 720,110 C960,160 1200,60 1440,110 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.10)"/>
+            </svg>
+            <svg class="wave wave-mid" viewBox="0 0 1440 220" preserveAspectRatio="none">
+                <path d="M0,130 C240,80 480,180 720,130 C960,80 1200,180 1440,130 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.14)"/>
+            </svg>
+            <svg class="wave wave-front" viewBox="0 0 1440 220" preserveAspectRatio="none">
+                <path d="M0,150 C240,200 480,100 720,150 C960,200 1200,100 1440,150 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.20)"/>
+            </svg>
         </div>
 
-        <div class="cloud-layer cloud-mid">
-            <div class="cloud c4"></div>
-            <div class="cloud c5"></div>
-        </div>
-
-        <svg class="plane" viewBox="0 0 512 512" width="64" height="64">
-            <path fill="#ffffff" d="M472 233.6L293.3 54.9c-9.4-9.4-24.6-9.4-33.9 0l-19.8 19.8c-9.4 9.4-9.4 24.6 0 33.9L354.7 224H24c-13.3 0-24 10.7-24 24v16c0 13.3 10.7 24 24 24h330.7L239.6 403.4c-9.4 9.4-9.4 24.6 0 33.9l19.8 19.8c9.4 9.4 24.6 9.4 33.9 0L472 278.4c17.4-17.4 17.4-45.4 0-62.8z"/>
-        </svg>
-
-        <div class="cloud-layer cloud-front">
-            <div class="cloud c6"></div>
-            <div class="cloud c7"></div>
+        <div class="nav-wrapper">
+            <nav class="center-pill-nav reveal">
+                <a href="/" class="pill-link">Home</a>
+                <a href="/about" class="pill-link">About Us</a>
+                <a href="/dashboard" class="pill-link">Explore</a>
+            </nav>
         </div>
 
         <div class="hero-content reveal">
-            <p class="eyebrow">Government of India &middot; SIH Prototype</p>
-            <h1>Real-time airfare <span>price index</span><br>for India</h1>
-            <p class="hero-sub">
-                Automated daily scraping across airlines, cleaned and
-                aggregated into a transparent, verifiable index —
-                built to augment the Consumer Price Index.
-            </p>
-            <a href="/dashboard" class="cta-button">Explore Dashboard</a>
-        </div>
-
-        <div class="floating-bezel reveal">
-            <span class="bezel-label">Live National Index</span>
-            <strong class="bezel-value" id="landingIndexValue">—</strong>
-            <span class="bezel-sub">Updated daily, 06:00 IST</span>
+            <div class="hero-logo">APIx</div>
+            <p class="hero-motto">Know the fare.<br>Know the market.</p>
+            <a href="/dashboard" class="cta-button">Get Data</a>
         </div>
 
     </header>
@@ -71,9 +50,9 @@
         <div class="feature-card reveal">
             <div class="feature-icon">🛰️</div>
             <h3>Automated Collection</h3>
-            <p>A scheduled pipeline queries live fare data every day
-               across four major routes and airlines — no manual
-               input required.</p>
+            <p>A scheduled pipeline queries live fare data every two
+               hours across four major routes and airlines — no
+               manual input required.</p>
         </div>
 
         <div class="feature-card reveal">
