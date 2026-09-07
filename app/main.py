@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from fastapi import Depends
 from scraper.collector import run_collection
 from pipeline.cleaner import clean_fares
+import io
 
 from app.database import get_db
 from app.models import FareRecord
