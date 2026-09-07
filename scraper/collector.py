@@ -76,7 +76,7 @@ def _collect_mock(collection_date, collection_time, now):
 
                     print(
                         f"Collected: {route} | {airline} | "
-                        f"T+{lead_time} | ₹{record['total_fare']}"
+                        f"T+{lead_time} | Rs {record['total_fare']}"
                     )
 
                 except Exception as error:
@@ -181,6 +181,18 @@ def run_collection():
         new_records,
         DATA_FILE
     )
+
+    try:
+        from app.database import SessionLocal
+        from app.repository import save_fare_records
+        db = SessionLocal()
+        try:
+            records_dict = new_data.to_dict(orient="records")
+            save_fare_records(db, records_dict)
+        finally:
+            db.close()
+    except Exception as error:
+        print(f"Database save warning: {error}")
 
     collected_count = len(new_data)
 

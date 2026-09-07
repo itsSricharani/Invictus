@@ -89,6 +89,9 @@ def clean_fares(df):
 
     cleaned = df.copy()
 
+    for col in cleaned.select_dtypes(include=["object", "string"]).columns:
+        cleaned[col] = cleaned[col].astype(str).str.strip()
+
     if "availability" in cleaned.columns:
         cleaned = cleaned[
             cleaned["availability"]

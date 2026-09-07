@@ -44,6 +44,7 @@ def load_existing_data(file_path):
     try:
 
         df = pd.read_csv(file_path)
+        df.columns = [c.strip() for c in df.columns]
 
         if "departure_date" not in df.columns:
 

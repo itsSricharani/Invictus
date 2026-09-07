@@ -1,269 +1,509 @@
-collection_date, collection_time, date      , departure_date, route  , airline  , source        , lead_time, base_fare, taxes, fees, total_fare, availability
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BOM, IndiGo   , google_flights,         1,          ,      ,     ,       5985, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BOM, Air India, google_flights,         1,          ,      ,     ,       6364, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BOM, SpiceJet , google_flights,         1,          ,      ,     ,       7719, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BOM, Akasa Air, google_flights,         1,          ,      ,     ,       6880, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BOM, IndiGo   , google_flights,         7,          ,      ,     ,       5985, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BOM, Air India, google_flights,         7,          ,      ,     ,       6582, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BOM, SpiceJet , google_flights,         7,          ,      ,     ,       8599, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BOM, Akasa Air, google_flights,         7,          ,      ,     ,       6880, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BOM, IndiGo   , google_flights,        15,          ,      ,     ,       6425, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BOM, Air India, google_flights,        15,          ,      ,     ,       6582, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BOM, SpiceJet , google_flights,        15,          ,      ,     ,       7335, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BOM, Akasa Air, google_flights,        15,          ,      ,     ,       6880, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BOM, IndiGo   , google_flights,        30,          ,      ,     ,       6425, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BOM, Air India, google_flights,        30,          ,      ,     ,       6582, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BOM, SpiceJet , google_flights,        30,          ,      ,     ,       6697, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BOM, Akasa Air, google_flights,        30,          ,      ,     ,       6880, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BOM, IndiGo   , google_flights,        45,          ,      ,     ,       6513, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BOM, Air India, google_flights,        45,          ,      ,     ,       6610, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BOM, SpiceJet , google_flights,        45,          ,      ,     ,       6778, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BOM, Akasa Air, google_flights,        45,          ,      ,     ,       6880, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       9292, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BLR, Air India, google_flights,         1,          ,      ,     ,       9340, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-BLR, Akasa Air, google_flights,         1,          ,      ,     ,      10209, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       8386, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BLR, Air India, google_flights,         7,          ,      ,     ,       9340, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9179, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       8724, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BLR, Air India, google_flights,        15,          ,      ,     ,       8883, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       9508, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       8724, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BLR, Air India, google_flights,        30,          ,      ,     ,       9264, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-BLR, Akasa Air, google_flights,        30,          ,      ,     ,      10209, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       9841, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BLR, Air India, google_flights,        45,          ,      ,     ,       9264, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BLR, SpiceJet , google_flights,        45,          ,      ,     ,      10036, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-BLR, Akasa Air, google_flights,        45,          ,      ,     ,      10967, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , BOM-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       5148, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , BOM-BLR, Air India, google_flights,         1,          ,      ,     ,       6350, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , BOM-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       7264, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , BOM-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       6614, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , BOM-BLR, Air India, google_flights,         7,          ,      ,     ,       7432, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , BOM-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9175, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , BOM-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       6957, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , BOM-BLR, Air India, google_flights,        15,          ,      ,     ,       7117, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , BOM-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       7549, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , BOM-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       5459, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , BOM-BLR, Air India, google_flights,        30,          ,      ,     ,       7353, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , BOM-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       7549, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , BOM-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       6957, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , BOM-BLR, Air India, google_flights,        45,          ,      ,     ,       7132, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , BOM-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       5971, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , BOM-BLR, Akasa Air, google_flights,        45,          ,      ,     ,       6994, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-HYD, IndiGo   , google_flights,         1,          ,      ,     ,       7884, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-HYD, Air India, google_flights,         1,          ,      ,     ,       9457, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-05    , DEL-HYD, Akasa Air, google_flights,         1,          ,      ,     ,       9955, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-HYD, IndiGo   , google_flights,         7,          ,      ,     ,       7962, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-HYD, Air India, google_flights,         7,          ,      ,     ,       9457, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-11    , DEL-HYD, Akasa Air, google_flights,         7,          ,      ,     ,      10321, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-HYD, IndiGo   , google_flights,        15,          ,      ,     ,       7884, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-HYD, Air India, google_flights,        15,          ,      ,     ,       9457, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-09-19    , DEL-HYD, Akasa Air, google_flights,        15,          ,      ,     ,       8944, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-HYD, IndiGo   , google_flights,        30,          ,      ,     ,       7752, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-HYD, Air India, google_flights,        30,          ,      ,     ,       9457, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-04    , DEL-HYD, Akasa Air, google_flights,        30,          ,      ,     ,       9955, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-HYD, IndiGo   , google_flights,        45,          ,      ,     ,       7752, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-HYD, Air India, google_flights,        45,          ,      ,     ,       9457, available
-2026-09-04     , 10:32:11       , 2026-09-04, 2026-10-19    , DEL-HYD, Akasa Air, google_flights,        45,          ,      ,     ,       9605, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BOM, IndiGo   , google_flights,         1,          ,      ,     ,       6425, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BOM, Air India, google_flights,         1,          ,      ,     ,       6582, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BOM, SpiceJet , google_flights,         1,          ,      ,     ,      17089, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BOM, Akasa Air, google_flights,         1,          ,      ,     ,       6880, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BOM, IndiGo   , google_flights,         7,          ,      ,     ,       6425, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BOM, Air India, google_flights,         7,          ,      ,     ,       6582, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BOM, SpiceJet , google_flights,         7,          ,      ,     ,       7335, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BOM, Akasa Air, google_flights,         7,          ,      ,     ,       6880, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BOM, IndiGo   , google_flights,        15,          ,      ,     ,       6425, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BOM, Air India, google_flights,        15,          ,      ,     ,       6582, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BOM, SpiceJet , google_flights,        15,          ,      ,     ,       7719, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BOM, Akasa Air, google_flights,        15,          ,      ,     ,       6880, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BOM, IndiGo   , google_flights,        30,          ,      ,     ,       5985, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BOM, Air India, google_flights,        30,          ,      ,     ,       6582, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BOM, SpiceJet , google_flights,        30,          ,      ,     ,       6697, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BOM, Akasa Air, google_flights,        30,          ,      ,     ,       6880, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BOM, IndiGo   , google_flights,        45,          ,      ,     ,       5985, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BOM, Air India, google_flights,        45,          ,      ,     ,       6989, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BOM, SpiceJet , google_flights,        45,          ,      ,     ,       6778, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BOM, Akasa Air, google_flights,        45,          ,      ,     ,       7243, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BLR, IndiGo   , google_flights,         1,          ,      ,     ,      10392, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BLR, Air India, google_flights,         1,          ,      ,     ,      10810, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-BLR, Akasa Air, google_flights,         1,          ,      ,     ,      14408, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       8724, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BLR, Air India, google_flights,         7,          ,      ,     ,       8883, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9179, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       9666, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BLR, Air India, google_flights,        15,          ,      ,     ,       9819, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-BLR, Akasa Air, google_flights,        15,          ,      ,     ,      10967, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       8386, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BLR, Air India, google_flights,        30,          ,      ,     ,       8909, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       9179, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       8255, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BLR, Air India, google_flights,        45,          ,      ,     ,       9264, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       9592, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-BLR, Akasa Air, google_flights,        45,          ,      ,     ,      10581, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , BOM-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       6614, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , BOM-BLR, Air India, google_flights,         1,          ,      ,     ,       6949, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , BOM-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       8157, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , BOM-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       7272, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , BOM-BLR, Air India, google_flights,         7,          ,      ,     ,       8167, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , BOM-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9546, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , BOM-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       6957, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , BOM-BLR, Air India, google_flights,        15,          ,      ,     ,       7117, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , BOM-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       7845, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , BOM-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       5017, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , BOM-BLR, Air India, google_flights,        30,          ,      ,     ,       6891, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , BOM-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       7549, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , BOM-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       5017, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , BOM-BLR, Air India, google_flights,        45,          ,      ,     ,       7132, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , BOM-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       5971, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , BOM-BLR, Akasa Air, google_flights,        45,          ,      ,     ,       6994, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-HYD, IndiGo   , google_flights,         1,          ,      ,     ,       9825, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-HYD, Air India, google_flights,         1,          ,      ,     ,       8984, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-06    , DEL-HYD, Akasa Air, google_flights,         1,          ,      ,     ,      10701, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-HYD, IndiGo   , google_flights,         7,          ,      ,     ,       7962, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-HYD, Air India, google_flights,         7,          ,      ,     ,       9457, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-12    , DEL-HYD, Akasa Air, google_flights,         7,          ,      ,     ,       9268, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-HYD, IndiGo   , google_flights,        15,          ,      ,     ,       9301, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-HYD, Air India, google_flights,        15,          ,      ,     ,       9457, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-09-20    , DEL-HYD, Akasa Air, google_flights,        15,          ,      ,     ,      10701, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-HYD, IndiGo   , google_flights,        30,          ,      ,     ,       8172, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-HYD, Air India, google_flights,        30,          ,      ,     ,       9457, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-05    , DEL-HYD, Akasa Air, google_flights,        30,          ,      ,     ,       9268, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-HYD, IndiGo   , google_flights,        45,          ,      ,     ,       7752, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-HYD, Air India, google_flights,        45,          ,      ,     ,       9620, available
-2026-09-05     , 16:44:11       , 2026-09-05, 2026-10-20    , DEL-HYD, Akasa Air, google_flights,        45,          ,      ,     ,      10701, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BOM, IndiGo   , google_flights,         1,          ,      ,     ,       6117, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BOM, Air India, google_flights,         1,          ,      ,     ,       6365, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BOM, SpiceJet , google_flights,         1,          ,      ,     ,       7335, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BOM, Akasa Air, google_flights,         1,          ,      ,     ,       6880, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BOM, IndiGo   , google_flights,         7,          ,      ,     ,       6425, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BOM, Air India, google_flights,         7,          ,      ,     ,       6201, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BOM, SpiceJet , google_flights,         7,          ,      ,     ,       9642, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BOM, Akasa Air, google_flights,         7,          ,      ,     ,       6880, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BOM, IndiGo   , google_flights,        15,          ,      ,     ,       5985, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BOM, Air India, google_flights,        15,          ,      ,     ,       6582, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BOM, SpiceJet , google_flights,        15,          ,      ,     ,       7719, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BOM, Akasa Air, google_flights,        15,          ,      ,     ,       6880, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BOM, IndiGo   , google_flights,        30,          ,      ,     ,       5985, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BOM, Air India, google_flights,        30,          ,      ,     ,       6582, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BOM, SpiceJet , google_flights,        30,          ,      ,     ,       6697, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BOM, Akasa Air, google_flights,        30,          ,      ,     ,       6880, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BOM, IndiGo   , google_flights,        45,          ,      ,     ,       6914, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BOM, Air India, google_flights,        45,          ,      ,     ,       7017, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BOM, SpiceJet , google_flights,        45,          ,      ,     ,       6778, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BOM, Akasa Air, google_flights,        45,          ,      ,     ,       7369, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       8386, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BLR, Air India, google_flights,         1,          ,      ,     ,       8883, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       9179, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       8724, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BLR, Air India, google_flights,         7,          ,      ,     ,       9576, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9851, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       8386, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BLR, Air India, google_flights,        15,          ,      ,     ,       8731, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       9179, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       8255, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BLR, Air India, google_flights,        30,          ,      ,     ,       8731, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       9179, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       9405, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BLR, Air India, google_flights,        45,          ,      ,     ,       9264, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       9592, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-BLR, Akasa Air, google_flights,        45,          ,      ,     ,      10392, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , BOM-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       5358, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , BOM-BLR, Air India, google_flights,         1,          ,      ,     ,       7117, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , BOM-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       6023, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , BOM-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       6957, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , BOM-BLR, Air India, google_flights,         7,          ,      ,     ,       5300, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , BOM-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       5599, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , BOM-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       5148, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , BOM-BLR, Air India, google_flights,        15,          ,      ,     ,       7117, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , BOM-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       6249, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , BOM-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       5017, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , BOM-BLR, Air India, google_flights,        30,          ,      ,     ,       5615, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , BOM-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       5400, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , BOM-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       6957, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , BOM-BLR, Air India, google_flights,        45,          ,      ,     ,       7132, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , BOM-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       5658, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , BOM-BLR, Akasa Air, google_flights,        45,          ,      ,     ,       6994, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-HYD, IndiGo   , google_flights,         1,          ,      ,     ,       8825, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-HYD, Air India, google_flights,         1,          ,      ,     ,       8932, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-08    , DEL-HYD, Akasa Air, google_flights,         1,          ,      ,     ,       9955, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-HYD, IndiGo   , google_flights,         7,          ,      ,     ,       7884, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-HYD, Air India, google_flights,         7,          ,      ,     ,       9299, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-14    , DEL-HYD, Akasa Air, google_flights,         7,          ,      ,     ,       9955, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-HYD, IndiGo   , google_flights,        15,          ,      ,     ,       7884, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-HYD, Air India, google_flights,        15,          ,      ,     ,       8984, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-09-22    , DEL-HYD, Akasa Air, google_flights,        15,          ,      ,     ,       8944, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-HYD, IndiGo   , google_flights,        30,          ,      ,     ,       8172, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-HYD, Air India, google_flights,        30,          ,      ,     ,       9299, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-07    , DEL-HYD, Akasa Air, google_flights,        30,          ,      ,     ,       9268, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-HYD, IndiGo   , google_flights,        45,          ,      ,     ,       7752, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-HYD, Air India, google_flights,        45,          ,      ,     ,       9457, available
-2026-09-07     , 12:16:14       , 2026-09-07, 2026-10-22    , DEL-HYD, Akasa Air, google_flights,        45,          ,      ,     ,       9268, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BOM, IndiGo   , google_flights,         1,          ,      ,     ,       6117, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BOM, Air India, google_flights,         1,          ,      ,     ,       6365, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BOM, SpiceJet , google_flights,         1,          ,      ,     ,       7335, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BOM, Akasa Air, google_flights,         1,          ,      ,     ,       6880, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BOM, IndiGo   , google_flights,         7,          ,      ,     ,       6425, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BOM, Air India, google_flights,         7,          ,      ,     ,       6201, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BOM, SpiceJet , google_flights,         7,          ,      ,     ,       9642, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BOM, Akasa Air, google_flights,         7,          ,      ,     ,       6880, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BOM, IndiGo   , google_flights,        15,          ,      ,     ,       5985, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BOM, Air India, google_flights,        15,          ,      ,     ,       6582, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BOM, SpiceJet , google_flights,        15,          ,      ,     ,       7719, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BOM, Akasa Air, google_flights,        15,          ,      ,     ,       6880, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BOM, IndiGo   , google_flights,        30,          ,      ,     ,       5985, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BOM, Air India, google_flights,        30,          ,      ,     ,       6582, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BOM, SpiceJet , google_flights,        30,          ,      ,     ,       6697, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BOM, Akasa Air, google_flights,        30,          ,      ,     ,       6880, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BOM, IndiGo   , google_flights,        45,          ,      ,     ,       6914, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BOM, Air India, google_flights,        45,          ,      ,     ,       7017, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BOM, SpiceJet , google_flights,        45,          ,      ,     ,       6778, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BOM, Akasa Air, google_flights,        45,          ,      ,     ,       7369, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       8386, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BLR, Air India, google_flights,         1,          ,      ,     ,       8883, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       9179, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       8724, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BLR, Air India, google_flights,         7,          ,      ,     ,       9576, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       9851, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       8386, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BLR, Air India, google_flights,        15,          ,      ,     ,       8731, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       9179, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       8255, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BLR, Air India, google_flights,        30,          ,      ,     ,       8731, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       9179, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       9405, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BLR, Air India, google_flights,        45,          ,      ,     ,       9264, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       9592, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-BLR, Akasa Air, google_flights,        45,          ,      ,     ,      10392, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , BOM-BLR, IndiGo   , google_flights,         1,          ,      ,     ,       5358, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , BOM-BLR, Air India, google_flights,         1,          ,      ,     ,       6719, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , BOM-BLR, Akasa Air, google_flights,         1,          ,      ,     ,       6023, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , BOM-BLR, IndiGo   , google_flights,         7,          ,      ,     ,       6957, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , BOM-BLR, Air India, google_flights,         7,          ,      ,     ,       5300, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , BOM-BLR, Akasa Air, google_flights,         7,          ,      ,     ,       5599, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , BOM-BLR, IndiGo   , google_flights,        15,          ,      ,     ,       5017, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , BOM-BLR, Air India, google_flights,        15,          ,      ,     ,       7117, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , BOM-BLR, Akasa Air, google_flights,        15,          ,      ,     ,       5806, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , BOM-BLR, IndiGo   , google_flights,        30,          ,      ,     ,       5017, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , BOM-BLR, Air India, google_flights,        30,          ,      ,     ,       5615, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , BOM-BLR, Akasa Air, google_flights,        30,          ,      ,     ,       5400, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , BOM-BLR, IndiGo   , google_flights,        45,          ,      ,     ,       6957, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , BOM-BLR, Air India, google_flights,        45,          ,      ,     ,       7132, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , BOM-BLR, SpiceJet , google_flights,        45,          ,      ,     ,       5658, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , BOM-BLR, Akasa Air, google_flights,        45,          ,      ,     ,       6994, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-HYD, IndiGo   , google_flights,         1,          ,      ,     ,       8825, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-HYD, Air India, google_flights,         1,          ,      ,     ,       8932, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-08    , DEL-HYD, Akasa Air, google_flights,         1,          ,      ,     ,       9955, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-HYD, IndiGo   , google_flights,         7,          ,      ,     ,       7884, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-HYD, Air India, google_flights,         7,          ,      ,     ,       9299, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-14    , DEL-HYD, Akasa Air, google_flights,         7,          ,      ,     ,       9955, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-HYD, IndiGo   , google_flights,        15,          ,      ,     ,       7884, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-HYD, Air India, google_flights,        15,          ,      ,     ,       8984, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-09-22    , DEL-HYD, Akasa Air, google_flights,        15,          ,      ,     ,       8944, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-HYD, IndiGo   , google_flights,        30,          ,      ,     ,       8172, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-HYD, Air India, google_flights,        30,          ,      ,     ,       9299, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-07    , DEL-HYD, Akasa Air, google_flights,        30,          ,      ,     ,       9268, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-HYD, IndiGo   , google_flights,        45,          ,      ,     ,       7752, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-HYD, Air India, google_flights,        45,          ,      ,     ,       9457, available
-2026-09-07     , 12:18:26       , 2026-09-07, 2026-10-22    , DEL-HYD, Akasa Air, google_flights,        45,          ,      ,     ,       9268, available
+collection_date,collection_time,date,departure_date,route,airline,source,lead_time,base_fare,taxes,fees,total_fare,availability
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BOM,IndiGo,google_flights,1,,,,5985.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BOM,Air India,google_flights,1,,,,6364.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BOM,SpiceJet,google_flights,1,,,,7719.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BOM,Akasa Air,google_flights,1,,,,6880.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BOM,IndiGo,google_flights,7,,,,5985.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BOM,Air India,google_flights,7,,,,6582.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BOM,SpiceJet,google_flights,7,,,,8599.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BOM,Akasa Air,google_flights,7,,,,6880.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BOM,IndiGo,google_flights,15,,,,6425.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BOM,Air India,google_flights,15,,,,6582.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BOM,SpiceJet,google_flights,15,,,,7335.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BOM,Akasa Air,google_flights,15,,,,6880.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BOM,IndiGo,google_flights,30,,,,6425.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BOM,Air India,google_flights,30,,,,6582.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BOM,SpiceJet,google_flights,30,,,,6697.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BOM,Akasa Air,google_flights,30,,,,6880.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BOM,IndiGo,google_flights,45,,,,6513.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BOM,Air India,google_flights,45,,,,6610.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BOM,SpiceJet,google_flights,45,,,,6778.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BOM,Akasa Air,google_flights,45,,,,6880.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BLR,IndiGo,google_flights,1,,,,9292.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BLR,Air India,google_flights,1,,,,9340.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-BLR,Akasa Air,google_flights,1,,,,10209.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BLR,IndiGo,google_flights,7,,,,8386.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BLR,Air India,google_flights,7,,,,9340.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-BLR,Akasa Air,google_flights,7,,,,9179.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BLR,IndiGo,google_flights,15,,,,8724.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BLR,Air India,google_flights,15,,,,8883.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-BLR,Akasa Air,google_flights,15,,,,9508.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BLR,IndiGo,google_flights,30,,,,8724.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BLR,Air India,google_flights,30,,,,9264.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-BLR,Akasa Air,google_flights,30,,,,10209.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BLR,IndiGo,google_flights,45,,,,9841.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BLR,Air India,google_flights,45,,,,9264.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BLR,SpiceJet,google_flights,45,,,,10036.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-BLR,Akasa Air,google_flights,45,,,,10967.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,BOM-BLR,IndiGo,google_flights,1,,,,5148.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,BOM-BLR,Air India,google_flights,1,,,,6350.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,BOM-BLR,Akasa Air,google_flights,1,,,,7264.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,BOM-BLR,IndiGo,google_flights,7,,,,6614.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,BOM-BLR,Air India,google_flights,7,,,,7432.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,BOM-BLR,Akasa Air,google_flights,7,,,,9175.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,BOM-BLR,IndiGo,google_flights,15,,,,6957.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,BOM-BLR,Air India,google_flights,15,,,,7117.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,BOM-BLR,Akasa Air,google_flights,15,,,,7549.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,BOM-BLR,IndiGo,google_flights,30,,,,5459.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,BOM-BLR,Air India,google_flights,30,,,,7353.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,BOM-BLR,Akasa Air,google_flights,30,,,,7549.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,BOM-BLR,IndiGo,google_flights,45,,,,6957.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,BOM-BLR,Air India,google_flights,45,,,,7132.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,BOM-BLR,SpiceJet,google_flights,45,,,,5971.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,BOM-BLR,Akasa Air,google_flights,45,,,,6994.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-HYD,IndiGo,google_flights,1,,,,7884.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-HYD,Air India,google_flights,1,,,,9457.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-05,DEL-HYD,Akasa Air,google_flights,1,,,,9955.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-HYD,IndiGo,google_flights,7,,,,7962.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-HYD,Air India,google_flights,7,,,,9457.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-11,DEL-HYD,Akasa Air,google_flights,7,,,,10321.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-HYD,IndiGo,google_flights,15,,,,7884.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-HYD,Air India,google_flights,15,,,,9457.0,available
+2026-09-04,10:32:11,2026-09-04,2026-09-19,DEL-HYD,Akasa Air,google_flights,15,,,,8944.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-HYD,IndiGo,google_flights,30,,,,7752.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-HYD,Air India,google_flights,30,,,,9457.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-04,DEL-HYD,Akasa Air,google_flights,30,,,,9955.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-HYD,IndiGo,google_flights,45,,,,7752.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-HYD,Air India,google_flights,45,,,,9457.0,available
+2026-09-04,10:32:11,2026-09-04,2026-10-19,DEL-HYD,Akasa Air,google_flights,45,,,,9605.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BOM,IndiGo,google_flights,1,,,,6425.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BOM,Air India,google_flights,1,,,,6582.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BOM,SpiceJet,google_flights,1,,,,17089.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BOM,Akasa Air,google_flights,1,,,,6880.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BOM,IndiGo,google_flights,7,,,,6425.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BOM,Air India,google_flights,7,,,,6582.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BOM,SpiceJet,google_flights,7,,,,7335.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BOM,Akasa Air,google_flights,7,,,,6880.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BOM,IndiGo,google_flights,15,,,,6425.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BOM,Air India,google_flights,15,,,,6582.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BOM,SpiceJet,google_flights,15,,,,7719.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BOM,Akasa Air,google_flights,15,,,,6880.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BOM,IndiGo,google_flights,30,,,,5985.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BOM,Air India,google_flights,30,,,,6582.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BOM,SpiceJet,google_flights,30,,,,6697.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BOM,Akasa Air,google_flights,30,,,,6880.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BOM,IndiGo,google_flights,45,,,,5985.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BOM,Air India,google_flights,45,,,,6989.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BOM,SpiceJet,google_flights,45,,,,6778.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BOM,Akasa Air,google_flights,45,,,,7243.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BLR,IndiGo,google_flights,1,,,,10392.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BLR,Air India,google_flights,1,,,,10810.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-BLR,Akasa Air,google_flights,1,,,,14408.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BLR,IndiGo,google_flights,7,,,,8724.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BLR,Air India,google_flights,7,,,,8883.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-BLR,Akasa Air,google_flights,7,,,,9179.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BLR,IndiGo,google_flights,15,,,,9666.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BLR,Air India,google_flights,15,,,,9819.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-BLR,Akasa Air,google_flights,15,,,,10967.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BLR,IndiGo,google_flights,30,,,,8386.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BLR,Air India,google_flights,30,,,,8909.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-BLR,Akasa Air,google_flights,30,,,,9179.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BLR,IndiGo,google_flights,45,,,,8255.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BLR,Air India,google_flights,45,,,,9264.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BLR,SpiceJet,google_flights,45,,,,9592.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-BLR,Akasa Air,google_flights,45,,,,10581.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,BOM-BLR,IndiGo,google_flights,1,,,,6614.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,BOM-BLR,Air India,google_flights,1,,,,6949.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,BOM-BLR,Akasa Air,google_flights,1,,,,8157.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,BOM-BLR,IndiGo,google_flights,7,,,,7272.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,BOM-BLR,Air India,google_flights,7,,,,8167.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,BOM-BLR,Akasa Air,google_flights,7,,,,9546.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,BOM-BLR,IndiGo,google_flights,15,,,,6957.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,BOM-BLR,Air India,google_flights,15,,,,7117.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,BOM-BLR,Akasa Air,google_flights,15,,,,7845.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,BOM-BLR,IndiGo,google_flights,30,,,,5017.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,BOM-BLR,Air India,google_flights,30,,,,6891.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,BOM-BLR,Akasa Air,google_flights,30,,,,7549.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,BOM-BLR,IndiGo,google_flights,45,,,,5017.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,BOM-BLR,Air India,google_flights,45,,,,7132.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,BOM-BLR,SpiceJet,google_flights,45,,,,5971.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,BOM-BLR,Akasa Air,google_flights,45,,,,6994.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-HYD,IndiGo,google_flights,1,,,,9825.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-HYD,Air India,google_flights,1,,,,8984.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-06,DEL-HYD,Akasa Air,google_flights,1,,,,10701.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-HYD,IndiGo,google_flights,7,,,,7962.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-HYD,Air India,google_flights,7,,,,9457.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-12,DEL-HYD,Akasa Air,google_flights,7,,,,9268.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-HYD,IndiGo,google_flights,15,,,,9301.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-HYD,Air India,google_flights,15,,,,9457.0,available
+2026-09-05,16:44:11,2026-09-05,2026-09-20,DEL-HYD,Akasa Air,google_flights,15,,,,10701.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-HYD,IndiGo,google_flights,30,,,,8172.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-HYD,Air India,google_flights,30,,,,9457.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-05,DEL-HYD,Akasa Air,google_flights,30,,,,9268.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-HYD,IndiGo,google_flights,45,,,,7752.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-HYD,Air India,google_flights,45,,,,9620.0,available
+2026-09-05,16:44:11,2026-09-05,2026-10-20,DEL-HYD,Akasa Air,google_flights,45,,,,10701.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BOM,IndiGo,google_flights,1,,,,6117.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BOM,Air India,google_flights,1,,,,6365.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BOM,SpiceJet,google_flights,1,,,,7335.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BOM,Akasa Air,google_flights,1,,,,6880.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BOM,IndiGo,google_flights,7,,,,6425.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BOM,Air India,google_flights,7,,,,6201.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BOM,SpiceJet,google_flights,7,,,,9642.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BOM,Akasa Air,google_flights,7,,,,6880.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BOM,IndiGo,google_flights,15,,,,5985.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BOM,Air India,google_flights,15,,,,6582.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BOM,SpiceJet,google_flights,15,,,,7719.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BOM,Akasa Air,google_flights,15,,,,6880.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BOM,IndiGo,google_flights,30,,,,5985.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BOM,Air India,google_flights,30,,,,6582.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BOM,SpiceJet,google_flights,30,,,,6697.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BOM,Akasa Air,google_flights,30,,,,6880.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BOM,IndiGo,google_flights,45,,,,6914.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BOM,Air India,google_flights,45,,,,7017.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BOM,SpiceJet,google_flights,45,,,,6778.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BOM,Akasa Air,google_flights,45,,,,7369.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BLR,IndiGo,google_flights,1,,,,8386.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BLR,Air India,google_flights,1,,,,8883.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-BLR,Akasa Air,google_flights,1,,,,9179.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BLR,IndiGo,google_flights,7,,,,8724.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BLR,Air India,google_flights,7,,,,9576.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-BLR,Akasa Air,google_flights,7,,,,9851.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BLR,IndiGo,google_flights,15,,,,8386.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BLR,Air India,google_flights,15,,,,8731.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-BLR,Akasa Air,google_flights,15,,,,9179.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BLR,IndiGo,google_flights,30,,,,8255.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BLR,Air India,google_flights,30,,,,8731.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-BLR,Akasa Air,google_flights,30,,,,9179.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BLR,IndiGo,google_flights,45,,,,9405.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BLR,Air India,google_flights,45,,,,9264.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BLR,SpiceJet,google_flights,45,,,,9592.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-BLR,Akasa Air,google_flights,45,,,,10392.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,BOM-BLR,IndiGo,google_flights,1,,,,5358.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,BOM-BLR,Air India,google_flights,1,,,,7117.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,BOM-BLR,Akasa Air,google_flights,1,,,,6023.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,BOM-BLR,IndiGo,google_flights,7,,,,6957.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,BOM-BLR,Air India,google_flights,7,,,,5300.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,BOM-BLR,Akasa Air,google_flights,7,,,,5599.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,BOM-BLR,IndiGo,google_flights,15,,,,5148.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,BOM-BLR,Air India,google_flights,15,,,,7117.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,BOM-BLR,Akasa Air,google_flights,15,,,,6249.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,BOM-BLR,IndiGo,google_flights,30,,,,5017.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,BOM-BLR,Air India,google_flights,30,,,,5615.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,BOM-BLR,Akasa Air,google_flights,30,,,,5400.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,BOM-BLR,IndiGo,google_flights,45,,,,6957.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,BOM-BLR,Air India,google_flights,45,,,,7132.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,BOM-BLR,SpiceJet,google_flights,45,,,,5658.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,BOM-BLR,Akasa Air,google_flights,45,,,,6994.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-HYD,IndiGo,google_flights,1,,,,8825.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-HYD,Air India,google_flights,1,,,,8932.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-08,DEL-HYD,Akasa Air,google_flights,1,,,,9955.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-HYD,IndiGo,google_flights,7,,,,7884.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-HYD,Air India,google_flights,7,,,,9299.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-14,DEL-HYD,Akasa Air,google_flights,7,,,,9955.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-HYD,IndiGo,google_flights,15,,,,7884.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-HYD,Air India,google_flights,15,,,,8984.0,available
+2026-09-07,12:16:14,2026-09-07,2026-09-22,DEL-HYD,Akasa Air,google_flights,15,,,,8944.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-HYD,IndiGo,google_flights,30,,,,8172.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-HYD,Air India,google_flights,30,,,,9299.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-07,DEL-HYD,Akasa Air,google_flights,30,,,,9268.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-HYD,IndiGo,google_flights,45,,,,7752.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-HYD,Air India,google_flights,45,,,,9457.0,available
+2026-09-07,12:16:14,2026-09-07,2026-10-22,DEL-HYD,Akasa Air,google_flights,45,,,,9268.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BOM,IndiGo,google_flights,1,,,,6117.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BOM,Air India,google_flights,1,,,,6365.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BOM,SpiceJet,google_flights,1,,,,7335.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BOM,Akasa Air,google_flights,1,,,,6880.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BOM,IndiGo,google_flights,7,,,,6425.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BOM,Air India,google_flights,7,,,,6201.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BOM,SpiceJet,google_flights,7,,,,9642.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BOM,Akasa Air,google_flights,7,,,,6880.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BOM,IndiGo,google_flights,15,,,,5985.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BOM,Air India,google_flights,15,,,,6582.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BOM,SpiceJet,google_flights,15,,,,7719.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BOM,Akasa Air,google_flights,15,,,,6880.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BOM,IndiGo,google_flights,30,,,,5985.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BOM,Air India,google_flights,30,,,,6582.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BOM,SpiceJet,google_flights,30,,,,6697.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BOM,Akasa Air,google_flights,30,,,,6880.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BOM,IndiGo,google_flights,45,,,,6914.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BOM,Air India,google_flights,45,,,,7017.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BOM,SpiceJet,google_flights,45,,,,6778.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BOM,Akasa Air,google_flights,45,,,,7369.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BLR,IndiGo,google_flights,1,,,,8386.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BLR,Air India,google_flights,1,,,,8883.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-BLR,Akasa Air,google_flights,1,,,,9179.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BLR,IndiGo,google_flights,7,,,,8724.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BLR,Air India,google_flights,7,,,,9576.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-BLR,Akasa Air,google_flights,7,,,,9851.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BLR,IndiGo,google_flights,15,,,,8386.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BLR,Air India,google_flights,15,,,,8731.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-BLR,Akasa Air,google_flights,15,,,,9179.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BLR,IndiGo,google_flights,30,,,,8255.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BLR,Air India,google_flights,30,,,,8731.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-BLR,Akasa Air,google_flights,30,,,,9179.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BLR,IndiGo,google_flights,45,,,,9405.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BLR,Air India,google_flights,45,,,,9264.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BLR,SpiceJet,google_flights,45,,,,9592.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-BLR,Akasa Air,google_flights,45,,,,10392.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,BOM-BLR,IndiGo,google_flights,1,,,,5358.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,BOM-BLR,Air India,google_flights,1,,,,6719.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,BOM-BLR,Akasa Air,google_flights,1,,,,6023.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,BOM-BLR,IndiGo,google_flights,7,,,,6957.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,BOM-BLR,Air India,google_flights,7,,,,5300.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,BOM-BLR,Akasa Air,google_flights,7,,,,5599.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,BOM-BLR,IndiGo,google_flights,15,,,,5017.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,BOM-BLR,Air India,google_flights,15,,,,7117.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,BOM-BLR,Akasa Air,google_flights,15,,,,5806.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,BOM-BLR,IndiGo,google_flights,30,,,,5017.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,BOM-BLR,Air India,google_flights,30,,,,5615.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,BOM-BLR,Akasa Air,google_flights,30,,,,5400.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,BOM-BLR,IndiGo,google_flights,45,,,,6957.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,BOM-BLR,Air India,google_flights,45,,,,7132.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,BOM-BLR,SpiceJet,google_flights,45,,,,5658.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,BOM-BLR,Akasa Air,google_flights,45,,,,6994.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-HYD,IndiGo,google_flights,1,,,,8825.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-HYD,Air India,google_flights,1,,,,8932.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-08,DEL-HYD,Akasa Air,google_flights,1,,,,9955.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-HYD,IndiGo,google_flights,7,,,,7884.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-HYD,Air India,google_flights,7,,,,9299.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-14,DEL-HYD,Akasa Air,google_flights,7,,,,9955.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-HYD,IndiGo,google_flights,15,,,,7884.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-HYD,Air India,google_flights,15,,,,8984.0,available
+2026-09-07,12:18:26,2026-09-07,2026-09-22,DEL-HYD,Akasa Air,google_flights,15,,,,8944.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-HYD,IndiGo,google_flights,30,,,,8172.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-HYD,Air India,google_flights,30,,,,9299.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-07,DEL-HYD,Akasa Air,google_flights,30,,,,9268.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-HYD,IndiGo,google_flights,45,,,,7752.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-HYD,Air India,google_flights,45,,,,9457.0,available
+2026-09-07,12:18:26,2026-09-07,2026-10-22,DEL-HYD,Akasa Air,google_flights,45,,,,9268.0,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BOM,IndiGo,mock,1,,,,8888.37,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BOM,IndiGo,mock,7,,,,5598.04,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BOM,IndiGo,mock,15,,,,5482.94,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BOM,IndiGo,mock,30,,,,4567.52,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BOM,IndiGo,mock,45,,,,4962.14,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BOM,Air India,mock,1,,,,10349.24,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BOM,Air India,mock,7,,,,7028.03,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BOM,Air India,mock,15,,,,5737.95,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BOM,Air India,mock,30,,,,5341.22,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BOM,Air India,mock,45,,,,5531.91,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BOM,SpiceJet,mock,1,,,,8306.35,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BOM,SpiceJet,mock,7,,,,5669.66,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BOM,SpiceJet,mock,15,,,,4839.75,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BOM,SpiceJet,mock,30,,,,5060.62,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BOM,SpiceJet,mock,45,,,,5055.31,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BOM,Akasa Air,mock,1,,,,8679.25,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BOM,Akasa Air,mock,7,,,,6598.53,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BOM,Akasa Air,mock,15,,,,5093.08,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BOM,Akasa Air,mock,30,,,,5049.78,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BOM,Akasa Air,mock,45,,,,4582.51,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BLR,IndiGo,mock,1,,,,10182.05,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BLR,IndiGo,mock,7,,,,6809.56,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BLR,IndiGo,mock,15,,,,5760.06,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BLR,IndiGo,mock,30,,,,6202.25,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BLR,IndiGo,mock,45,,,,6348.57,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BLR,Air India,mock,1,,,,12370.07,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BLR,Air India,mock,7,,,,8522.78,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BLR,Air India,mock,15,,,,5973.01,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BLR,Air India,mock,30,,,,6642.0,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BLR,Air India,mock,45,,,,6761.22,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BLR,SpiceJet,mock,1,,,,11188.3,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BLR,SpiceJet,mock,7,,,,6815.69,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BLR,SpiceJet,mock,15,,,,5469.55,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BLR,SpiceJet,mock,30,,,,5806.58,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BLR,SpiceJet,mock,45,,,,5663.72,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-BLR,Akasa Air,mock,1,,,,11813.35,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-BLR,Akasa Air,mock,7,,,,6895.31,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-BLR,Akasa Air,mock,15,,,,6099.8,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-BLR,Akasa Air,mock,30,,,,6197.13,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-BLR,Akasa Air,mock,45,,,,5413.86,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,BOM-BLR,IndiGo,mock,1,,,,8012.06,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,BOM-BLR,IndiGo,mock,7,,,,5923.68,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,BOM-BLR,IndiGo,mock,15,,,,4576.7,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,BOM-BLR,IndiGo,mock,30,,,,4867.13,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,BOM-BLR,IndiGo,mock,45,,,,4196.28,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,BOM-BLR,Air India,mock,1,,,,8825.59,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,BOM-BLR,Air India,mock,7,,,,5470.31,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,BOM-BLR,Air India,mock,15,,,,5011.59,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,BOM-BLR,Air India,mock,30,,,,5327.92,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,BOM-BLR,Air India,mock,45,,,,5393.77,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,BOM-BLR,SpiceJet,mock,1,,,,8068.24,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,BOM-BLR,SpiceJet,mock,7,,,,5189.18,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,BOM-BLR,SpiceJet,mock,15,,,,4641.41,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,BOM-BLR,SpiceJet,mock,30,,,,4803.81,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,BOM-BLR,SpiceJet,mock,45,,,,4086.93,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,BOM-BLR,Akasa Air,mock,1,,,,8316.85,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,BOM-BLR,Akasa Air,mock,7,,,,5864.17,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,BOM-BLR,Akasa Air,mock,15,,,,4541.67,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,BOM-BLR,Akasa Air,mock,30,,,,4729.8,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,BOM-BLR,Akasa Air,mock,45,,,,4140.11,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-HYD,IndiGo,mock,1,,,,7964.47,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-HYD,IndiGo,mock,7,,,,5468.75,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-HYD,IndiGo,mock,15,,,,4488.24,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-HYD,IndiGo,mock,30,,,,4804.75,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-HYD,IndiGo,mock,45,,,,4534.48,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-HYD,Air India,mock,1,,,,8764.01,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-HYD,Air India,mock,7,,,,5913.34,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-HYD,Air India,mock,15,,,,4997.67,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-HYD,Air India,mock,30,,,,5563.18,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-HYD,Air India,mock,45,,,,5564.65,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-HYD,SpiceJet,mock,1,,,,8128.51,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-HYD,SpiceJet,mock,7,,,,5641.82,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-HYD,SpiceJet,mock,15,,,,5148.55,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-HYD,SpiceJet,mock,30,,,,4799.69,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-HYD,SpiceJet,mock,45,,,,5054.93,available
+2026-09-07,15:11:56,2026-09-07,2026-09-08,DEL-HYD,Akasa Air,mock,1,,,,8071.03,available
+2026-09-07,15:11:56,2026-09-07,2026-09-14,DEL-HYD,Akasa Air,mock,7,,,,5496.75,available
+2026-09-07,15:11:56,2026-09-07,2026-09-22,DEL-HYD,Akasa Air,mock,15,,,,4869.63,available
+2026-09-07,15:11:56,2026-09-07,2026-10-07,DEL-HYD,Akasa Air,mock,30,,,,4458.95,available
+2026-09-07,15:11:56,2026-09-07,2026-10-22,DEL-HYD,Akasa Air,mock,45,,,,5014.3,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BOM,IndiGo,mock,1,,,,9305.18,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BOM,IndiGo,mock,7,,,,5644.01,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BOM,IndiGo,mock,15,,,,5123.43,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BOM,IndiGo,mock,30,,,,5131.75,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BOM,IndiGo,mock,45,,,,5087.68,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BOM,Air India,mock,1,,,,10108.04,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BOM,Air India,mock,7,,,,6566.41,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BOM,Air India,mock,15,,,,5241.83,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BOM,Air India,mock,30,,,,5958.32,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BOM,Air India,mock,45,,,,5243.42,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BOM,SpiceJet,mock,1,,,,9569.25,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BOM,SpiceJet,mock,7,,,,5803.78,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BOM,SpiceJet,mock,15,,,,4716.71,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BOM,SpiceJet,mock,30,,,,4761.87,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BOM,SpiceJet,mock,45,,,,4538.17,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BOM,Akasa Air,mock,1,,,,9545.08,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BOM,Akasa Air,mock,7,,,,6413.29,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BOM,Akasa Air,mock,15,,,,4793.34,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BOM,Akasa Air,mock,30,,,,5007.47,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BOM,Akasa Air,mock,45,,,,4607.0,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BLR,IndiGo,mock,1,,,,10345.85,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BLR,IndiGo,mock,7,,,,7018.88,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BLR,IndiGo,mock,15,,,,5666.34,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BLR,IndiGo,mock,30,,,,6029.99,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BLR,IndiGo,mock,45,,,,6005.73,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BLR,Air India,mock,1,,,,12579.65,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BLR,Air India,mock,7,,,,7304.6,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BLR,Air India,mock,15,,,,6923.06,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BLR,Air India,mock,30,,,,7236.33,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BLR,Air India,mock,45,,,,7076.13,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BLR,SpiceJet,mock,1,,,,11120.27,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BLR,SpiceJet,mock,7,,,,7839.23,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BLR,SpiceJet,mock,15,,,,6320.7,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BLR,SpiceJet,mock,30,,,,6189.55,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BLR,SpiceJet,mock,45,,,,6291.2,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-BLR,Akasa Air,mock,1,,,,10913.27,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-BLR,Akasa Air,mock,7,,,,6844.69,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-BLR,Akasa Air,mock,15,,,,5740.87,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-BLR,Akasa Air,mock,30,,,,5717.31,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-BLR,Akasa Air,mock,45,,,,5431.1,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,BOM-BLR,IndiGo,mock,1,,,,7454.73,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,BOM-BLR,IndiGo,mock,7,,,,5381.79,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,BOM-BLR,IndiGo,mock,15,,,,4526.45,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,BOM-BLR,IndiGo,mock,30,,,,4891.06,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,BOM-BLR,IndiGo,mock,45,,,,4842.24,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,BOM-BLR,Air India,mock,1,,,,9719.8,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,BOM-BLR,Air India,mock,7,,,,6111.52,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,BOM-BLR,Air India,mock,15,,,,4671.12,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,BOM-BLR,Air India,mock,30,,,,5074.76,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,BOM-BLR,Air India,mock,45,,,,4487.37,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,BOM-BLR,SpiceJet,mock,1,,,,8008.34,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,BOM-BLR,SpiceJet,mock,7,,,,5102.51,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,BOM-BLR,SpiceJet,mock,15,,,,4863.62,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,BOM-BLR,SpiceJet,mock,30,,,,4522.18,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,BOM-BLR,SpiceJet,mock,45,,,,4548.67,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,BOM-BLR,Akasa Air,mock,1,,,,8848.07,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,BOM-BLR,Akasa Air,mock,7,,,,5638.76,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,BOM-BLR,Akasa Air,mock,15,,,,4923.66,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,BOM-BLR,Akasa Air,mock,30,,,,4467.77,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,BOM-BLR,Akasa Air,mock,45,,,,4123.73,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-HYD,IndiGo,mock,1,,,,9390.46,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-HYD,IndiGo,mock,7,,,,6195.4,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-HYD,IndiGo,mock,15,,,,4588.16,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-HYD,IndiGo,mock,30,,,,4593.72,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-HYD,IndiGo,mock,45,,,,5089.79,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-HYD,Air India,mock,1,,,,9533.67,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-HYD,Air India,mock,7,,,,6580.73,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-HYD,Air India,mock,15,,,,5186.33,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-HYD,Air India,mock,30,,,,5354.01,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-HYD,Air India,mock,45,,,,4956.87,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-HYD,SpiceJet,mock,1,,,,9011.23,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-HYD,SpiceJet,mock,7,,,,5743.04,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-HYD,SpiceJet,mock,15,,,,5045.56,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-HYD,SpiceJet,mock,30,,,,4556.06,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-HYD,SpiceJet,mock,45,,,,5220.14,available
+2026-09-07,15:14:20,2026-09-07,2026-09-08,DEL-HYD,Akasa Air,mock,1,,,,9248.04,available
+2026-09-07,15:14:20,2026-09-07,2026-09-14,DEL-HYD,Akasa Air,mock,7,,,,6310.67,available
+2026-09-07,15:14:20,2026-09-07,2026-09-22,DEL-HYD,Akasa Air,mock,15,,,,5100.57,available
+2026-09-07,15:14:20,2026-09-07,2026-10-07,DEL-HYD,Akasa Air,mock,30,,,,4726.51,available
+2026-09-07,15:14:20,2026-09-07,2026-10-22,DEL-HYD,Akasa Air,mock,45,,,,4416.83,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BOM,IndiGo,mock,1,,,,8310.96,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BOM,IndiGo,mock,7,,,,6083.3,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BOM,IndiGo,mock,15,,,,5140.26,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BOM,IndiGo,mock,30,,,,4513.71,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BOM,IndiGo,mock,45,,,,4633.61,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BOM,Air India,mock,1,,,,9058.14,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BOM,Air India,mock,7,,,,6737.39,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BOM,Air India,mock,15,,,,5472.55,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BOM,Air India,mock,30,,,,5689.08,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BOM,Air India,mock,45,,,,5999.48,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BOM,SpiceJet,mock,1,,,,8280.43,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BOM,SpiceJet,mock,7,,,,6461.3,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BOM,SpiceJet,mock,15,,,,5056.74,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BOM,SpiceJet,mock,30,,,,4764.57,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BOM,SpiceJet,mock,45,,,,5234.7,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BOM,Akasa Air,mock,1,,,,9629.93,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BOM,Akasa Air,mock,7,,,,5883.74,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BOM,Akasa Air,mock,15,,,,5129.46,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BOM,Akasa Air,mock,30,,,,4955.5,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BOM,Akasa Air,mock,45,,,,5165.04,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BLR,IndiGo,mock,1,,,,10878.48,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BLR,IndiGo,mock,7,,,,7052.24,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BLR,IndiGo,mock,15,,,,6211.49,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BLR,IndiGo,mock,30,,,,6055.78,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BLR,IndiGo,mock,45,,,,5520.12,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BLR,Air India,mock,1,,,,12928.47,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BLR,Air India,mock,7,,,,7432.78,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BLR,Air India,mock,15,,,,6044.54,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BLR,Air India,mock,30,,,,6622.14,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BLR,Air India,mock,45,,,,6637.99,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BLR,SpiceJet,mock,1,,,,11627.73,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BLR,SpiceJet,mock,7,,,,7046.69,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BLR,SpiceJet,mock,15,,,,5931.22,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BLR,SpiceJet,mock,30,,,,5536.58,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BLR,SpiceJet,mock,45,,,,5684.12,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-BLR,Akasa Air,mock,1,,,,11307.19,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-BLR,Akasa Air,mock,7,,,,6880.51,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-BLR,Akasa Air,mock,15,,,,5433.34,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-BLR,Akasa Air,mock,30,,,,6198.13,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-BLR,Akasa Air,mock,45,,,,5811.98,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,BOM-BLR,IndiGo,mock,1,,,,8247.04,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,BOM-BLR,IndiGo,mock,7,,,,4961.94,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,BOM-BLR,IndiGo,mock,15,,,,4285.71,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,BOM-BLR,IndiGo,mock,30,,,,4368.39,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,BOM-BLR,IndiGo,mock,45,,,,4557.62,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,BOM-BLR,Air India,mock,1,,,,8233.86,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,BOM-BLR,Air India,mock,7,,,,6468.08,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,BOM-BLR,Air India,mock,15,,,,5054.63,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,BOM-BLR,Air India,mock,30,,,,4594.08,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,BOM-BLR,Air India,mock,45,,,,5059.03,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,BOM-BLR,SpiceJet,mock,1,,,,7703.92,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,BOM-BLR,SpiceJet,mock,7,,,,5125.6,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,BOM-BLR,SpiceJet,mock,15,,,,4332.76,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,BOM-BLR,SpiceJet,mock,30,,,,4442.04,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,BOM-BLR,SpiceJet,mock,45,,,,4490.45,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,BOM-BLR,Akasa Air,mock,1,,,,8800.48,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,BOM-BLR,Akasa Air,mock,7,,,,5659.83,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,BOM-BLR,Akasa Air,mock,15,,,,4186.7,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,BOM-BLR,Akasa Air,mock,30,,,,4515.94,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,BOM-BLR,Akasa Air,mock,45,,,,4720.35,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-HYD,IndiGo,mock,1,,,,8655.77,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-HYD,IndiGo,mock,7,,,,6311.39,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-HYD,IndiGo,mock,15,,,,4970.02,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-HYD,IndiGo,mock,30,,,,4597.72,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-HYD,IndiGo,mock,45,,,,5229.45,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-HYD,Air India,mock,1,,,,9864.1,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-HYD,Air India,mock,7,,,,6851.71,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-HYD,Air India,mock,15,,,,5073.19,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-HYD,Air India,mock,30,,,,5760.34,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-HYD,Air India,mock,45,,,,5262.23,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-HYD,SpiceJet,mock,1,,,,8117.1,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-HYD,SpiceJet,mock,7,,,,5192.07,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-HYD,SpiceJet,mock,15,,,,5151.31,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-HYD,SpiceJet,mock,30,,,,4691.23,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-HYD,SpiceJet,mock,45,,,,4822.84,available
+2026-09-07,15:26:41,2026-09-07,2026-09-08,DEL-HYD,Akasa Air,mock,1,,,,8593.07,available
+2026-09-07,15:26:41,2026-09-07,2026-09-14,DEL-HYD,Akasa Air,mock,7,,,,5349.08,available
+2026-09-07,15:26:41,2026-09-07,2026-09-22,DEL-HYD,Akasa Air,mock,15,,,,4677.5,available
+2026-09-07,15:26:41,2026-09-07,2026-10-07,DEL-HYD,Akasa Air,mock,30,,,,5133.83,available
+2026-09-07,15:26:41,2026-09-07,2026-10-22,DEL-HYD,Akasa Air,mock,45,,,,4700.36,available
