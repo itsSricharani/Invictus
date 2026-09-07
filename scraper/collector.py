@@ -135,7 +135,7 @@ def _collect_google_flights(collection_date, collection_time, now):
 
                 print(
                     f"Collected: {route} | {airline} | "
-                    f"T+{lead_time} | ₹{fare}"
+                    f"T+{lead_time} | Rs {fare}"
                 )
 
             # Be polite to Google Flights between route/date queries.

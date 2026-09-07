@@ -9,7 +9,7 @@ from app.models import FareRecord
 
 from datetime import datetime
 from fastapi.responses import HTMLResponse
-from scraper.collection_service import collect_fares
+
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
@@ -79,6 +79,7 @@ def about(request: Request):
 def get_system_status():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     latest_date = df["date"].max()
 
@@ -107,6 +108,7 @@ def get_system_status():
 def get_current_index():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
@@ -141,6 +143,7 @@ def get_current_index():
 @app.get("/index/history")
 def get_index_history():
     df = load_unified_data()
+    df = clean_fares(df)
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
     validate_weights(weights_df)
@@ -188,6 +191,7 @@ def get_index_history():
 def get_lead_time_indices():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     available_dates = sorted(df["date"].unique())
 
@@ -213,6 +217,7 @@ def get_lead_time_indices():
 @app.get("/routes")
 def get_routes():
     df = load_unified_data()
+    df = clean_fares(df)
 
     routes = sorted(df["route"].unique().tolist())
 
@@ -248,6 +253,7 @@ def get_route(route: str):
 def get_data_quality():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     database_df = load_database_data()
 
@@ -285,6 +291,7 @@ def get_data_quality():
 def get_summary():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     weights_df = pd.read_csv(
         WEIGHTS_FILE
@@ -398,72 +405,14 @@ def get_summary():
 
     }
 
-@app.get("/summary")
-def get_summary(
-    db: Session = Depends(get_db)
-):
 
-    total_records = (
-        db.query(FareRecord)
-        .count()
-    )
-
-    routes = (
-        db.query(FareRecord.route)
-        .distinct()
-        .all()
-    )
-
-    airlines = (
-        db.query(FareRecord.airline)
-        .distinct()
-        .all()
-    )
-
-    sources = (
-        db.query(FareRecord.source)
-        .distinct()
-        .all()
-    )
-
-    return {
-        "total_records": total_records,
-        "routes": [
-            item[0]
-            for item in routes
-        ],
-        "airlines": [
-            item[0]
-            for item in airlines
-        ],
-        "sources": [
-            item[0]
-            for item in sources
-        ]
-    }
-
-@app.get("/system-status")
-def system_status(
-    db: Session = Depends(get_db)
-):
-
-    total_records = (
-        db.query(FareRecord)
-        .count()
-    )
-
-    return {
-        "status": "online",
-        "database": "connected",
-        "records": total_records
-    }
 
 @app.post("/collect")
 def collect_latest_fares():
 
     try:
 
-        result = collect_fares()
+        result = run_collection()
 
         return result
 

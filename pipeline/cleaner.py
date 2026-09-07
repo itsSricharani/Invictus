@@ -89,10 +89,11 @@ def clean_fares(df):
 
     cleaned = df.copy()
 
-    cleaned = cleaned[
-        cleaned["availability"]
-        == "available"
-    ]
+    if "availability" in cleaned.columns:
+        cleaned = cleaned[
+            cleaned["availability"]
+            == "available"
+        ]
 
     cleaned = cleaned[
         cleaned["total_fare"].notna()
@@ -106,16 +107,21 @@ def clean_fares(df):
         cleaned["total_fare"] <= 100000
     ]
 
+    preferred_dedup_cols = [
+        "collection_date",
+        "collection_time",
+        "departure_date",
+        "route",
+        "airline",
+        "source",
+        "lead_time"
+    ]
+    dedup_subset = [
+        col for col in preferred_dedup_cols
+        if col in cleaned.columns
+    ]
     cleaned = cleaned.drop_duplicates(
-        subset=[
-            "collection_date",
-            "collection_time",
-            "departure_date",
-            "route",
-            "airline",
-            "source",
-            "lead_time"
-        ]
+        subset=dedup_subset if dedup_subset else None
     )
 
     return cleaned.reset_index(
