@@ -8,7 +8,7 @@ from app.database import get_db
 from app.models import FareRecord
 
 from datetime import datetime
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
 
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
