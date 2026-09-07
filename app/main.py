@@ -7,9 +7,14 @@ from app.database import get_db
 from app.models import FareRecord
 
 from datetime import datetime
+<<<<<<< HEAD
 from fastapi.responses import HTMLResponse, StreamingResponse
 import io
 from scraper.collection_service import collect_fares
+=======
+from fastapi.responses import HTMLResponse
+
+>>>>>>> 4b222117a377d0418eff51eedbd6f47de2a39d2b
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from fastapi import Request
@@ -88,6 +93,11 @@ def about(request: Request):
 @app.get("/system-status")
 def get_system_status():
     df = load_unified_data()
+<<<<<<< HEAD
+=======
+    df = clean_fares(df)
+
+>>>>>>> 4b222117a377d0418eff51eedbd6f47de2a39d2b
     latest_date = df["date"].max()
     scheduler_info = get_scheduler_status()
 
@@ -106,6 +116,7 @@ def get_system_status():
 def get_current_index():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
@@ -140,6 +151,7 @@ def get_current_index():
 @app.get("/index/history")
 def get_index_history():
     df = load_unified_data()
+    df = clean_fares(df)
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
     validate_weights(weights_df)
@@ -187,6 +199,7 @@ def get_index_history():
 def get_lead_time_indices():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     available_dates = sorted(df["date"].unique())
 
@@ -212,6 +225,7 @@ def get_lead_time_indices():
 @app.get("/routes")
 def get_routes():
     df = load_unified_data()
+    df = clean_fares(df)
 
     routes = sorted(df["route"].unique().tolist())
 
@@ -247,6 +261,7 @@ def get_route(route: str):
 def get_data_quality():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     database_df = load_database_data()
 
@@ -284,6 +299,7 @@ def get_data_quality():
 def get_summary():
 
     df = load_unified_data()
+    df = clean_fares(df)
 
     weights_df = pd.read_csv(
         WEIGHTS_FILE
@@ -404,7 +420,7 @@ def collect_latest_fares():
 
     try:
 
-        result = collect_fares()
+        result = run_collection()
 
         return result
 
