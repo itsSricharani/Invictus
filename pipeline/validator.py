@@ -3,7 +3,6 @@ import pandas as pd
 
 REQUIRED_COLUMNS = [
     "date",
-    "departure_date",
     "route",
     "airline",
     "source",

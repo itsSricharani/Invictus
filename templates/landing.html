@@ -1,89 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AEIR — Real-Time Airfare Price Index for India</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/landing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeir | India's Airfare Intelligence Platform</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/static/css/landing.css">
+    
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.4.0/model-viewer.min.js"></script>
 </head>
 <body>
 
-    <div class="intro-panel" id="introPanel"></div>
-
-    <header class="sky-hero">
-
-        <div class="grain-overlay"></div>
-
-        <div class="wave-layer">
-            <svg class="wave wave-back" viewBox="0 0 1440 220" preserveAspectRatio="none">
-                <path d="M0,110 C240,160 480,60 720,110 C960,160 1200,60 1440,110 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.10)"/>
-            </svg>
-            <svg class="wave wave-mid" viewBox="0 0 1440 220" preserveAspectRatio="none">
-                <path d="M0,130 C240,80 480,180 720,130 C960,80 1200,180 1440,130 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.14)"/>
-            </svg>
-            <svg class="wave wave-front" viewBox="0 0 1440 220" preserveAspectRatio="none">
-                <path d="M0,150 C240,200 480,100 720,150 C960,200 1200,100 1440,150 L1440,220 L0,220 Z" fill="rgba(255,255,255,0.20)"/>
-            </svg>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-left">
+                <a href="/" class="brand-logo">Aeir</a>
+            </div>
+            <div class="nav-center">
+                <a href="/" class="nav-link">Overview</a>
+                <a href="/dashboard" class="nav-link">Index</a>
+                <a href="/about" class="nav-link">Methodology</a>
+            </div>
+            <div class="nav-right">
+                <a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+            </div>
         </div>
+    </nav>
 
-        <div class="nav-wrapper">
-            <nav class="center-pill-nav reveal">
-                <a href="/" class="pill-link">Home</a>
-                <a href="/about" class="pill-link">About Us</a>
-                <a href="/dashboard" class="pill-link">Explore</a>
-            </nav>
+    <header class="hero">
+        <div class="hero-bg">
+            <div class="hero-glow"></div>
+            <div class="hero-grid"></div>
         </div>
-
-        <div class="hero-content reveal">
-            <div class="hero-logo">AEIR</div>
-            <p class="hero-motto">Know the fare.<br>Know the market.</p>
-            <a href="/dashboard" class="cta-button">Get Data</a>
+        
+        <div class="hero-content">
+            <div class="hero-text reveal">
+                <p class="eyebrow">INDIA'S AIRFARE INTELLIGENCE PLATFORM</p>
+                <h1>Measuring the movement of airfares across India.</h1>
+                <p class="subtitle">Aeir tracks domestic airfare movements in real-time and converts them into a comprehensive airfare price index. Built for aviation intelligence.</p>
+                <div class="hero-actions">
+                    <a href="/dashboard" class="btn btn-primary">Explore the Index</a>
+                    <a href="/dashboard" class="btn btn-secondary outline">View Dashboard</a>
+                </div>
+            </div>
+            
+            <div class="hero-visual reveal">
+                <model-viewer 
+                    src="/static/DC8_AFRC_AIR_0824.glb" 
+                    alt="A 3D model of an aircraft"
+                    auto-rotate
+                    auto-rotate-delay="0"
+                    rotation-per-second="10deg"
+                    camera-controls
+                    camera-orbit="45deg 75deg 105%"
+                    shadow-intensity="1"
+                    shadow-softness="1"
+                    environment-image="neutral"
+                    exposure="1.2"
+                    disable-zoom>
+                </model-viewer>
+            </div>
         </div>
-
     </header>
 
-    <section class="features">
-
-        <div class="feature-card reveal">
-            <div class="feature-icon">🛰️</div>
-            <h3>Automated Collection</h3>
-            <p>A scheduled pipeline queries live fare data every two
-               hours across four major routes and airlines — no
-               manual input required.</p>
+    <section class="section index-glance">
+        <div class="container reveal">
+            <h2 class="section-title">The index at a glance</h2>
+            <div class="glance-grid">
+                <div class="glance-main">
+                    <div class="glance-label">NATIONAL AIRFARE INDEX</div>
+                    <div class="glance-value" id="glance-index">--</div>
+                    <div class="glance-change" id="glance-change">--</div>
+                </div>
+                <div class="glance-meta">
+                    <div class="meta-item">
+                        <span class="meta-label">LAST COLLECTION</span>
+                        <span class="meta-value" id="glance-time">--</span>
+                    </div>
+                    <div class="meta-item">
+                        <span class="meta-label">DATA STATUS</span>
+                        <span class="meta-value text-positive">LIVE</span>
+                    </div>
+                </div>
+            </div>
         </div>
-
-        <div class="feature-card reveal">
-            <div class="feature-icon">🧹</div>
-            <h3>Cleaned & Validated</h3>
-            <p>Raw fares are deduplicated and validated before
-               reaching the index, so movements reflect real market
-               change, not noisy data.</p>
-        </div>
-
-        <div class="feature-card reveal">
-            <div class="feature-icon">📈</div>
-            <h3>Transparent Index</h3>
-            <p>Route-level, lead-time, and national indices are all
-               computed openly, with full historical trend data
-               available on the dashboard.</p>
-        </div>
-
-        <div class="feature-card reveal">
-            <div class="feature-icon">🏛️</div>
-            <h3>CPI Augmentation</h3>
-            <p>Designed as a higher-frequency proxy for airfare
-               movement, to complement existing CPI transport
-               sub-index methodology.</p>
-        </div>
-
     </section>
 
-    <footer class="landing-footer">
-        <span>AEIR &middot; Smart India Hackathon</span>
-        <a href="/dashboard" class="cta-button small">Get Data →</a>
+    <section class="section">
+        <div class="container reveal">
+            <h2 class="section-title">Airfares, measured as a signal</h2>
+            <p class="section-desc">Aeir processes thousands of fare observations to build a normalized price index. By comparing real-time market rates against a fixed base period, the index provides a transparent view of aviation economics, free from seasonal noise.</p>
+        </div>
+    </section>
+
+    <section class="section pipeline">
+        <div class="container reveal">
+            <h2 class="section-title">How Aeir works</h2>
+            <div class="pipeline-steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <h3>Collection</h3>
+                    <p>Automated pipeline queries live fare data every 5 hours.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <h3>Validation</h3>
+                    <p>Fares are cleaned, deduplicated, and verified.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <h3>Aggregation</h3>
+                    <p>Route-level indices are computed with market weightings.</p>
+                </div>
+                <div class="step-arrow">→</div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <h3>Index</h3>
+                    <p>The national APIx metric is synthesized and published.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="logo">Aeir</span>
+                <p>Airfare intelligence for India.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/about">Methodology</a>
+            </div>
+        </div>
     </footer>
 
     <script src="/static/js/landing.js"></script>

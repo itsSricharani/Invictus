@@ -1,294 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeir | Airfare Price Index — Dashboard</title>
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
 
-    <title>AEIR | Airfare Price Index</title>
-
-    <link
-        rel="stylesheet"
-        href="/static/css/style.css"
-    >
-
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
 </head>
-
 <body>
 
+    <!-- Navigation -->
     <nav class="navbar">
-
-        <div class="brand">
-            <div class="logo">AEIR</div>
-
-            <div class="brand-text">
-                <span>Airfare Price Index</span>
-                <small>India</small>
+        <div class="nav-container">
+            <a href="/" class="brand-logo">Aeir</a>
+            <div class="nav-center">
+                <a href="/" class="nav-link">Overview</a>
+                <a href="/dashboard" class="nav-link active">Index</a>
+                <a href="/about" class="nav-link">Methodology</a>
+            </div>
+            <div class="nav-status">
+                <span class="status-dot"></span>
+                <span id="nav-status-text">LIVE DATA</span>
             </div>
         </div>
-
-        <div class="nav-status">
-            <span class="status-dot"></span>
-            LIVE DATA
-        </div>
-
     </nav>
 
+    <main>
+        <div class="container">
 
-    <main class="container">
-
-        <div id="demo-banner" style="display: none; background: #e65100; color: #ffffff; padding: 12px 20px; text-align: center; font-weight: 600; border-radius: 8px; margin-bottom: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.15);">
-            ⚠️ DEMO MODE: Live collected data is currently unavailable. Showing sample fallback dataset.
-        </div>
-
-        <section class="hero">
-
-            <div>
-                <p class="eyebrow">
-                    REAL-TIME AVIATION ECONOMICS
-                </p>
-
-                <h1>
-                    India's Airfare
-                    <span>Price Index</span>
-                </h1>
-
-                <p class="hero-description">
-                    Monitoring airfare movements across
-                    major domestic routes using automated
-                    data collection and index methodology.
-                </p>
+            <!-- Dashboard Header -->
+            <div class="dash-header reveal">
+                <div class="dash-header-inner">
+                    <div>
+                        <p class="dash-eyebrow">REAL-TIME AVIATION ECONOMICS</p>
+                        <h1>India's Airfare Price Index</h1>
+                    </div>
+                    <div class="dash-header-right">
+                        <div class="dash-meta">
+                            <div class="dash-meta-label">LAST UPDATED</div>
+                            <div class="dash-meta-value" id="current-date">Loading…</div>
+                        </div>
+                        <button class="export-btn" id="export-btn" onclick="triggerExport()" title="Download all data as Excel">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                            Download Data
+                        </button>
+                    </div>
+                </div>
             </div>
 
-            <div class="last-updated">
-
-                <span>LAST UPDATED</span>
-
-                <strong id="current-date">
-                    Loading...
-                </strong>
-
+            <!-- Data Status Strip -->
+            <div class="data-status-strip reveal" id="data-status-strip">
+                <div class="status-item">
+                    <div class="status-badge">
+                        <span class="status-dot"></span>
+                        <span id="data-status-label">LIVE</span>
+                    </div>
+                    <span class="meta-label" style="font-size:0.65rem;color:var(--text-muted);">DATA STATUS</span>
+                </div>
+                <div class="status-item">
+                    <strong id="status-records" style="font-size:0.9rem;color:var(--text-secondary);">--</strong>
+                    <span class="meta-label" style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Records</span>
+                </div>
+                <div class="status-item">
+                    <strong id="status-routes" style="font-size:0.9rem;color:var(--text-secondary);">--</strong>
+                    <span class="meta-label" style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Routes</span>
+                </div>
+                <div class="status-item">
+                    <strong id="status-next-run" style="font-size:0.9rem;color:var(--text-secondary);">--</strong>
+                    <span class="meta-label" style="font-size:0.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.08em;">Next Collection</span>
+                </div>
             </div>
 
-        </section>
+            <!-- Primary Index Section -->
+            <div class="index-hero-row reveal">
 
-
-        <section class="index-section reveal">
-
-            <div class="main-index-card">
-
-                <div class="index-label">
-                    NATIONAL AIR INDEX
+                <div class="index-main-card">
+                    <div class="index-label">NATIONAL AIRFARE INDEX (APIx)</div>
+                    <div class="index-value" id="national-index">--</div>
+                    <div class="index-description">Weighted composite of all monitored domestic routes</div>
+                    <div class="index-change" id="index-change">Loading…</div>
                 </div>
 
-                <div
-                    class="index-value"
-                    id="national-index"
-                >
-                    --
+                <div class="info-grid">
+                    <div class="info-card">
+                        <span class="info-label">BASE PERIOD</span>
+                        <strong id="base-date">--</strong>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">CURRENT PERIOD</span>
+                        <strong id="current-period">--</strong>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">ROUTES TRACKED</span>
+                        <strong id="route-count">--</strong>
+                    </div>
+                    <div class="info-card">
+                        <span class="info-label">DATA SOURCES</span>
+                        <strong id="source-count">--</strong>
+                    </div>
                 </div>
-
-                <div class="index-description">
-                    Airfare Price Index
-                </div>
-
-                <div
-                    class="index-change"
-                    id="index-change"
-                >
-                    Loading change...
-                </div>
-
             </div>
 
-
-            <div class="index-info-grid">
-
-                <div class="info-card">
-
-                    <span class="info-label">
-                        BASE PERIOD
-                    </span>
-
-                    <strong
-                        id="base-date"
-                    >
-                        --
-                    </strong>
-
+            <!-- Historical Chart -->
+            <section class="section reveal">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">HISTORICAL DATA</p>
+                        <h2>Aeir Index Trend</h2>
+                    </div>
                 </div>
-
-
-                <div class="info-card">
-
-                    <span class="info-label">
-                        CURRENT PERIOD
-                    </span>
-
-                    <strong
-                        id="current-period"
-                    >
-                        --
-                    </strong>
-
+                <div class="chart-card" id="history-chart-container">
+                    <canvas id="history-chart"></canvas>
+                    <div class="loading-placeholder" id="chart-loading">
+                        <div class="skeleton skel-text" style="width:140px;height:12px;"></div>
+                        <div class="skeleton skel-text" style="width:200px;height:10px;margin-top:6px;"></div>
+                    </div>
                 </div>
+            </section>
 
-
-                <div class="info-card">
-
-                    <span class="info-label">
-                        DATA SOURCES
-                    </span>
-
-                    <strong
-                        id="source-count"
-                    >
-                        --
-                    </strong>
-
+            <!-- Route Explorer -->
+            <section class="section reveal">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">ROUTE ANALYSIS</p>
+                        <h2>Route Price Indices</h2>
+                    </div>
                 </div>
-
-
-                <div class="info-card">
-
-                    <span class="info-label">
-                        ROUTES TRACKED
-                    </span>
-
-                    <strong
-                        id="route-count"
-                    >
-                        --
-                    </strong>
-
+                <div class="route-grid" id="route-grid">
+                    <!-- Skeleton placeholders -->
+                    <div class="route-card" style="opacity:0.4">
+                        <div class="skeleton" style="height:14px;width:80px;border-radius:4px;"></div>
+                        <div class="skeleton" style="height:32px;width:70px;border-radius:4px;margin-top:8px;"></div>
+                        <div class="skeleton" style="height:10px;width:120px;border-radius:4px;margin-top:6px;"></div>
+                    </div>
+                    <div class="route-card" style="opacity:0.25">
+                        <div class="skeleton" style="height:14px;width:80px;border-radius:4px;"></div>
+                        <div class="skeleton" style="height:32px;width:70px;border-radius:4px;margin-top:8px;"></div>
+                        <div class="skeleton" style="height:10px;width:120px;border-radius:4px;margin-top:6px;"></div>
+                    </div>
                 </div>
+            </section>
 
-            </div>
-
-        </section>
-
-
-        <section class="section reveal">
-
-            <div class="section-header reveal">
-
-                <div>
-
-                    <p class="eyebrow">
-                        HISTORICAL DATA
-                    </p>
-
-                    <h2>
-                        AEIR Trend
-                    </h2>
-
+            <!-- Lead Time Analysis -->
+            <section class="section reveal">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">BOOKING WINDOW</p>
+                        <h2>Lead-Time Analysis</h2>
+                    </div>
                 </div>
-
-            </div>
-
-
-            <div class="chart-card">
-
-                <canvas
-                    id="history-chart"
-                ></canvas>
-
-            </div>
-
-        </section>
-
-
-        <section class="section reveal">
-
-            <div class="section-header reveal">
-
-                <div>
-
-                    <p class="eyebrow">
-                        ROUTE ANALYSIS
-                    </p>
-
-                    <h2>
-                        Route Price Indices
-                    </h2>
-
+                <div class="lead-time-grid" id="lead-time-grid">
+                    <div class="lead-card" style="opacity:0.4">
+                        <div class="skeleton" style="height:10px;width:90px;border-radius:4px;"></div>
+                        <div class="skeleton" style="height:28px;width:60px;border-radius:4px;margin-top:8px;"></div>
+                    </div>
+                    <div class="lead-card" style="opacity:0.25">
+                        <div class="skeleton" style="height:10px;width:90px;border-radius:4px;"></div>
+                        <div class="skeleton" style="height:28px;width:60px;border-radius:4px;margin-top:8px;"></div>
+                    </div>
                 </div>
+            </section>
 
-            </div>
-
-
-            <div
-                class="route-grid"
-                id="route-grid"
-            >
-
-                <div class="loading">
-                    Loading route data...
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="section reveal">
-
-            <div class="section-header reveal">
-
-                <div>
-
-                    <p class="eyebrow">
-                        BOOKING WINDOW
-                    </p>
-
-                    <h2>
-                        Lead-Time Analysis
-                    </h2>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="lead-time-grid"
-                id="lead-time-grid"
-            >
-                Loading lead-time data...
-            </div>
-
-        </section>
-
-
-        
-
+        </div><!-- /container -->
     </main>
 
-
     <footer>
-
-        <strong>AEIR</strong>
-
-        <span>
-            Real-Time Airfare Price Index for India
-        </span>
-
-        <span>
-            SIH 2026
-        </span>
-
+        <div>
+            <strong>Aeir</strong> &nbsp;·&nbsp; Airfare intelligence for India.
+        </div>
+        <div style="display:flex;gap:1.5rem;">
+            <a href="/">Overview</a>
+            <a href="/about">Methodology</a>
+        </div>
     </footer>
 
-
-    <script
-        src="/static/js/dashboard.js"
-    ></script>
+    <script src="/static/js/dashboard.js"></script>
 
 </body>
-
 </html>
