@@ -86,8 +86,7 @@ async function loadDashboard() {
     ] = await Promise.allSettled([
         fetchData("/index"),
         fetchData("/index/history"),
-        fetchData("/lead-times"),
-        fetchData("/data-quality")
+        fetchData("/lead-times")
     ]);
 
     if (indexResult.status === "fulfilled") {
@@ -110,12 +109,6 @@ async function loadDashboard() {
         loadLeadTimes(leadTimeResult.value);
     } else {
         console.error("Lead times failed:", leadTimeResult.reason);
-    }
-
-    if (qualityResult.status === "fulfilled") {
-        loadQuality(qualityResult.value);
-    } else {
-        console.error("Data quality failed:", qualityResult.reason);
     }
 
 }
@@ -269,84 +262,6 @@ function loadLeadTimes(data) {
 
         }
     );
-
-}
-
-
-function loadQuality(data) {
-
-    document.getElementById(
-        "source-count"
-    ).textContent =
-        data.sources;
-
-
-    document.getElementById(
-        "route-count"
-    ).textContent =
-        data.routes;
-
-
-    const qualityGrid =
-        document.getElementById(
-            "quality-grid"
-        );
-
-
-    qualityGrid.innerHTML = `
-
-        <div class="quality-card">
-
-            <div class="info-label">
-                RAW RECORDS
-            </div>
-
-            <div class="quality-value">
-                ${data.raw_records}
-            </div>
-
-        </div>
-
-
-        <div class="quality-card">
-
-            <div class="info-label">
-                VALID RECORDS
-            </div>
-
-            <div class="quality-value">
-                ${data.valid_records}
-            </div>
-
-        </div>
-
-
-        <div class="quality-card">
-
-            <div class="info-label">
-                REMOVED RECORDS
-            </div>
-
-            <div class="quality-value">
-                ${data.removed_records}
-            </div>
-
-        </div>
-
-
-        <div class="quality-card">
-
-            <div class="info-label">
-                AIRLINES
-            </div>
-
-            <div class="quality-value">
-                ${data.airlines}
-            </div>
-
-        </div>
-
-    `;
 
 }
 
