@@ -116,10 +116,28 @@ async function loadDashboard() {
 
 function loadIndex(data) {
 
+    const demoBanner = document.getElementById("demo-banner");
+    const statusElem = document.querySelector(".nav-status");
+
+    if (data.data_mode === "demo") {
+        if (demoBanner) demoBanner.style.display = "block";
+        if (statusElem) {
+            statusElem.style.background = "#e65100";
+            statusElem.innerHTML = '<span class="status-dot" style="background:#ffcc80"></span> DEMO MODE (FALLBACK DATA)';
+        }
+    } else {
+        if (demoBanner) demoBanner.style.display = "none";
+        if (statusElem) {
+            statusElem.style.background = "";
+            statusElem.innerHTML = '<span class="status-dot"></span> LIVE DATA';
+        }
+    }
+
      animateCountUp(
         document.getElementById("national-index"),
         data.national_index
     );
+
 
 
     document.getElementById(

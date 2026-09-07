@@ -35,22 +35,27 @@ def load_database_data():
         for record in records:
 
             data.append({
-
+                "collection_date": record.collection_date,
+                "collection_time": record.collection_time,
                 "date": record.collection_date,
-
+                "departure_date": record.departure_date,
                 "route": record.route,
-
                 "airline": record.airline,
-
                 "source": record.source,
-
                 "lead_time": record.lead_time,
-
-                "total_fare": record.total_fare
-
+                "base_fare": record.base_fare,
+                "taxes": record.taxes,
+                "fees": record.fees,
+                "total_fare": record.total_fare,
+                "availability": record.availability
             })
 
-        return pd.DataFrame(data)
+        df = pd.DataFrame(data)
+
+        for col in df.select_dtypes(include=["object", "string"]).columns:
+            df[col] = df[col].astype(str).str.strip()
+
+        return df
 
     finally:
 
@@ -58,65 +63,34 @@ def load_database_data():
 
 
 def load_unified_data(
-    sample_file="data/sample_fares.csv",
-    raw_file="data/raw_fares.csv"
+    sample_file="data/sample_fares.csv"
 ):
 
-    datasets = []
+    df = pd.DataFrame()
+    data_mode = "live"
 
-    if os.path.exists(sample_file):
+    try:
+        df = load_database_data()
+    except Exception as err:
+        print(f"Warning: Failed to load database data: {err}")
+        df = pd.DataFrame()
 
-        sample_df = pd.read_csv(
-            sample_file
-        )
+    # Filter out mock / fake records from live database output
+    if not df.empty and "source" in df.columns:
+        mock_sources = ["mock", "Mock", "Airline", "test"]
+        df = df[~df["source"].astype(str).str.strip().isin(mock_sources)]
 
-        datasets.append(
-            sample_df
-        )
+    # Fall back to sample_fares.csv only if live real data is empty
+    if df.empty:
+        data_mode = "demo"
+        if os.path.exists(sample_file):
+            sample_df = pd.read_csv(sample_file)
+            for col in sample_df.select_dtypes(include=["object", "string"]).columns:
+                sample_df[col] = sample_df[col].astype(str).str.strip()
+            df = sample_df
+        else:
+            raise FileNotFoundError("No fare data available (live DB empty and sample file missing).")
 
-    if os.path.exists(raw_file):
-
-        raw_df = pd.read_csv(
-            raw_file
-        )
-
-        if not raw_df.empty:
-
-            required_columns = [
-                "date",
-                "departure_date",
-                "route",
-                "airline",
-                "source",
-                "lead_time",
-                "total_fare"
-            ]
-
-            missing = [
-                column
-                for column in required_columns
-                if column not in raw_df.columns
-            ]
-
-            if not missing:
-
-                raw_df = raw_df[
-                    required_columns
-                ]
-
-                datasets.append(
-                    raw_df
-                )
-
-    if not datasets:
-
-        raise FileNotFoundError(
-            "No fare data files found."
-        )
-
-    unified_df = pd.concat(
-        datasets,
-        ignore_index=True
-    )
-
-    return unified_df
+    df.attrs["data_mode"] = data_mode
+    df.data_mode = data_mode
+    return df

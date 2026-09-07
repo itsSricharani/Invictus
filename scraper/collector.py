@@ -168,38 +168,13 @@ def run_collection():
 
     print("\nStarting fare collection...\n")
 
-    new_data = collect_fares()
+    from scraper.collection_service import collect_fares_and_store
 
-    existing_data = load_existing_data(DATA_FILE)
+    result = collect_fares_and_store()
 
-    new_records = remove_duplicate_records(
-        new_data,
-        existing_data
-    )
-
-    saved_count = save_new_records(
-        new_records,
-        DATA_FILE
-    )
-
-    try:
-        from app.database import SessionLocal
-        from app.repository import save_fare_records
-        db = SessionLocal()
-        try:
-            records_dict = new_data.to_dict(orient="records")
-            save_fare_records(db, records_dict)
-        finally:
-            db.close()
-    except Exception as error:
-        print(f"Database save warning: {error}")
-
-    collected_count = len(new_data)
-
-    duplicate_count = (
-        collected_count
-        - len(new_records)
-    )
+    collected_count = result.get("collected", 0)
+    saved_count = result.get("inserted", 0)
+    duplicate_count = result.get("duplicates", 0)
 
     print("\nCollection complete.")
     print(f"Total collected: {collected_count}")

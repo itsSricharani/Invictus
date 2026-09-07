@@ -80,28 +80,18 @@ def get_system_status():
 
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     latest_date = df["date"].max()
 
     return {
-
         "status": "operational",
-
+        "data_mode": data_mode,
         "total_records": len(df),
-
         "latest_data_date": str(latest_date),
-
-        "routes_monitored":
-            df["route"].nunique(),
-
-        "airlines_monitored":
-            df["airline"].nunique(),
-
-        "last_checked":
-            datetime.now().strftime(
-                "%Y-%m-%d %H:%M:%S"
-            )
-
+        "routes_monitored": df["route"].nunique(),
+        "airlines_monitored": df["airline"].nunique(),
+        "last_checked": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
 @app.get("/index")
@@ -109,6 +99,7 @@ def get_current_index():
 
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
@@ -131,6 +122,7 @@ def get_current_index():
     )
 
     return {
+        "data_mode": data_mode,
         "base_date": base_date,
         "current_date": current_date,
         "national_index": round(float(national_index), 2),
@@ -140,10 +132,12 @@ def get_current_index():
         }
     }
 
+
 @app.get("/index/history")
 def get_index_history():
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
     weights_df = pd.read_csv(WEIGHTS_FILE)
 
     validate_weights(weights_df)
@@ -182,6 +176,7 @@ def get_index_history():
         previous_value = current_value
 
     return {
+        "data_mode": data_mode,
         "base_date": dates[0],
         "history": history_with_changes
     }
@@ -192,6 +187,7 @@ def get_lead_time_indices():
 
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     available_dates = sorted(df["date"].unique())
 
@@ -205,6 +201,7 @@ def get_lead_time_indices():
     )
 
     return {
+        "data_mode": data_mode,
         "base_date": base_date,
         "current_date": current_date,
         "lead_time_indices": {
@@ -218,10 +215,12 @@ def get_lead_time_indices():
 def get_routes():
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     routes = sorted(df["route"].unique().tolist())
 
     return {
+        "data_mode": data_mode,
         "routes": routes
     }
 
@@ -229,6 +228,7 @@ def get_routes():
 @app.get("/routes/{route}")
 def get_route(route: str):
     df = load_unified_data()
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     available_routes = df["route"].unique()
 
@@ -241,6 +241,7 @@ def get_route(route: str):
     trend = calculate_route_trend(df, route)
 
     return {
+        "data_mode": data_mode,
         "route": route,
         "average_fares": {
             date: round(float(price), 2)
@@ -254,10 +255,13 @@ def get_data_quality():
 
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
 
     database_df = load_database_data()
 
     return {
+
+        "data_mode": data_mode,
 
         "total_records": len(df),
 
@@ -292,6 +296,8 @@ def get_summary():
 
     df = load_unified_data()
     df = clean_fares(df)
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
+
 
     weights_df = pd.read_csv(
         WEIGHTS_FILE
@@ -339,6 +345,8 @@ def get_summary():
 
 
     return {
+
+        "data_mode": data_mode,
 
         "index": {
 
