@@ -1,6 +1,5 @@
 from sqlalchemy.orm import Session
 from fastapi import Depends
-from scraper.scheduler import start_scheduler
 from scraper.collector import run_collection
 from pipeline.cleaner import clean_fares
 
@@ -8,7 +7,8 @@ from app.database import get_db
 from app.models import FareRecord
 
 from datetime import datetime
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, StreamingResponse
+import io
 from scraper.collection_service import collect_fares
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
@@ -29,10 +29,20 @@ from pipeline.index_service import (
 )
 
 
+from contextlib import asynccontextmanager
+from scraper.scheduler import start_scheduler, stop_scheduler, get_scheduler_status
+
+@asynccontextmanager
+async def lifespan(app: FastAPI):
+    start_scheduler()
+    yield
+    stop_scheduler()
+
 app = FastAPI(
     title="APIx",
     version="0.1.0",
-    description="Real-Time Airfare Price Index for India"
+    description="Real-Time Airfare Price Index for India",
+    lifespan=lifespan
 )
 
 app.mount(
@@ -77,30 +87,19 @@ def about(request: Request):
 
 @app.get("/system-status")
 def get_system_status():
-
     df = load_unified_data()
-
     latest_date = df["date"].max()
+    scheduler_info = get_scheduler_status()
 
     return {
-
         "status": "operational",
-
+        "scheduler_status": scheduler_info["status"],
+        "next_collection": scheduler_info["next_run"],
         "total_records": len(df),
-
         "latest_data_date": str(latest_date),
-
-        "routes_monitored":
-            df["route"].nunique(),
-
-        "airlines_monitored":
-            df["airline"].nunique(),
-
-        "last_checked":
-            datetime.now().strftime(
-                "%Y-%m-%d %H:%M:%S"
-            )
-
+        "routes_monitored": df["route"].nunique(),
+        "airlines_monitored": df["airline"].nunique(),
+        "last_checked": datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     }
 
 @app.get("/index")
@@ -398,65 +397,7 @@ def get_summary():
 
     }
 
-@app.get("/summary")
-def get_summary(
-    db: Session = Depends(get_db)
-):
 
-    total_records = (
-        db.query(FareRecord)
-        .count()
-    )
-
-    routes = (
-        db.query(FareRecord.route)
-        .distinct()
-        .all()
-    )
-
-    airlines = (
-        db.query(FareRecord.airline)
-        .distinct()
-        .all()
-    )
-
-    sources = (
-        db.query(FareRecord.source)
-        .distinct()
-        .all()
-    )
-
-    return {
-        "total_records": total_records,
-        "routes": [
-            item[0]
-            for item in routes
-        ],
-        "airlines": [
-            item[0]
-            for item in airlines
-        ],
-        "sources": [
-            item[0]
-            for item in sources
-        ]
-    }
-
-@app.get("/system-status")
-def system_status(
-    db: Session = Depends(get_db)
-):
-
-    total_records = (
-        db.query(FareRecord)
-        .count()
-    )
-
-    return {
-        "status": "online",
-        "database": "connected",
-        "records": total_records
-    }
 
 @app.post("/collect")
 def collect_latest_fares():
@@ -522,9 +463,7 @@ def get_fares(
         for record in records
     ]
 
-@app.on_event("startup")
-def on_startup():
-    start_scheduler()
+
 
 
 @app.post("/admin/collect-now")
@@ -533,3 +472,191 @@ def trigger_collection_now():
     don't wait for the 06:00 IST cron job)."""
     result = run_collection()
     return result
+
+
+@app.get("/export")
+def export_data(db: Session = Depends(get_db)):
+    """
+    Export all fare data and computed index statistics as a multi-sheet Excel workbook.
+    Sheets: Raw Fares · Index Summary · Route Indices · Lead-Time Indices · Historical Index
+    """
+    try:
+        import openpyxl
+        from openpyxl.styles import Font, PatternFill, Alignment, Border, Side
+        from openpyxl.utils import get_column_letter
+    except ImportError:
+        raise HTTPException(
+            status_code=500,
+            detail="openpyxl is required for export. Install with: pip install openpyxl"
+        )
+
+    # ---- Gather data ----
+    df = load_unified_data()
+    weights_df = pd.read_csv(WEIGHTS_FILE)
+    validate_weights(weights_df)
+
+    available_dates = sorted(df["date"].unique())
+    base_date = available_dates[0]
+    current_date = available_dates[-1]
+
+    route_indices = calculate_route_index(df, base_date, current_date)
+    national_index = calculate_weighted_national_index(route_indices, weights_df)
+    history = calculate_historical_index(df, weights_df)
+    lead_time_indices = calculate_lead_time_index(df, base_date, current_date)
+
+    # ---- Raw fare records from DB ----
+    raw_records = db.query(FareRecord).order_by(FareRecord.id.desc()).all()
+
+    # ---- Styling helpers ----
+    HEADER_FILL   = PatternFill("solid", fgColor="0B1728")
+    HEADER_FONT   = Font(name="Calibri", bold=True, color="7DD3FC", size=11)
+    CELL_FONT     = Font(name="Calibri", size=10, color="F5F7FA")
+    ALT_FILL      = PatternFill("solid", fgColor="101D30")
+    PLAIN_FILL    = PatternFill("solid", fgColor="0B1728")
+    THIN_BORDER   = Border(
+        bottom=Side(style="thin", color="1A2D45"),
+        right=Side(style="thin", color="1A2D45"),
+    )
+    ACCENT_FONT   = Font(name="Calibri", bold=True, color="38BDF8", size=12)
+
+    def _style_header(ws, headers, row=1):
+        for col_idx, header in enumerate(headers, start=1):
+            cell = ws.cell(row=row, column=col_idx, value=header)
+            cell.font   = HEADER_FONT
+            cell.fill   = HEADER_FILL
+            cell.alignment = Alignment(horizontal="center", vertical="center", wrap_text=False)
+            cell.border = THIN_BORDER
+
+    def _auto_width(ws, min_w=10, max_w=40):
+        for col in ws.columns:
+            col_letter = get_column_letter(col[0].column)
+            max_len = max((len(str(c.value)) if c.value else 0 for c in col), default=0)
+            ws.column_dimensions[col_letter].width = min(max(max_len + 3, min_w), max_w)
+
+    def _style_data_rows(ws, data_start_row, data_end_row, n_cols):
+        for row_idx in range(data_start_row, data_end_row + 1):
+            fill = ALT_FILL if row_idx % 2 == 0 else PLAIN_FILL
+            for col_idx in range(1, n_cols + 1):
+                cell = ws.cell(row=row_idx, column=col_idx)
+                cell.fill   = fill
+                cell.font   = CELL_FONT
+                cell.border = THIN_BORDER
+                cell.alignment = Alignment(horizontal="left", vertical="center")
+
+    wb = openpyxl.Workbook()
+
+    # ============================================================
+    # Sheet 1: Index Summary
+    # ============================================================
+    ws_summary = wb.active
+    ws_summary.title = "Index Summary"
+    ws_summary.sheet_view.showGridLines = False
+    ws_summary.freeze_panes = "A2"
+
+    _style_header(ws_summary, ["Metric", "Value"], row=1)
+    now_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    sched = get_scheduler_status()
+    summary_rows = [
+        ("Export Generated",       now_str),
+        ("Base Period",            base_date),
+        ("Current Period",         current_date),
+        ("National Airfare Index", round(float(national_index), 2)),
+        ("Change from Base (pts)", round(float(national_index) - 100, 2)),
+        ("Total Records",          len(df)),
+        ("Routes Monitored",       df["route"].nunique()),
+        ("Airlines Monitored",     df["airline"].nunique()),
+        ("Data Sources",           df["source"].nunique()),
+        ("Scheduler Status",       sched.get("status", "N/A")),
+        ("Next Collection",        sched.get("next_run", "N/A")),
+    ]
+    for r_idx, (metric, value) in enumerate(summary_rows, start=2):
+        ws_summary.cell(row=r_idx, column=1, value=metric)
+        ws_summary.cell(row=r_idx, column=2, value=value)
+    _style_data_rows(ws_summary, 2, len(summary_rows) + 1, 2)
+    _auto_width(ws_summary)
+
+    # ============================================================
+    # Sheet 2: Route Indices
+    # ============================================================
+    ws_routes = wb.create_sheet("Route Indices")
+    ws_routes.sheet_view.showGridLines = False
+    _style_header(ws_routes, ["Route", "Index Value", "Change from Base (pts)", "Weight"], row=1)
+    weights_lookup = dict(zip(weights_df["route"], weights_df["weight"]))
+    for r_idx, (route, val) in enumerate(sorted(route_indices.items()), start=2):
+        ws_routes.cell(row=r_idx, column=1, value=route)
+        ws_routes.cell(row=r_idx, column=2, value=round(float(val), 2))
+        ws_routes.cell(row=r_idx, column=3, value=round(float(val) - 100, 2))
+        ws_routes.cell(row=r_idx, column=4, value=weights_lookup.get(route, "N/A"))
+    _style_data_rows(ws_routes, 2, len(route_indices) + 1, 4)
+    _auto_width(ws_routes)
+
+    # ============================================================
+    # Sheet 3: Lead-Time Indices
+    # ============================================================
+    ws_lead = wb.create_sheet("Lead-Time Indices")
+    ws_lead.sheet_view.showGridLines = False
+    _style_header(ws_lead, ["Lead Time (Days)", "Index Value", "Change from Base (pts)"], row=1)
+    for r_idx, (lead, val) in enumerate(sorted(lead_time_indices.items()), start=2):
+        ws_lead.cell(row=r_idx, column=1, value=lead)
+        ws_lead.cell(row=r_idx, column=2, value=round(float(val), 2))
+        ws_lead.cell(row=r_idx, column=3, value=round(float(val) - 100, 2))
+    _style_data_rows(ws_lead, 2, len(lead_time_indices) + 1, 3)
+    _auto_width(ws_lead)
+
+    # ============================================================
+    # Sheet 4: Historical Index
+    # ============================================================
+    ws_hist = wb.create_sheet("Historical Index")
+    ws_hist.sheet_view.showGridLines = False
+    _style_header(ws_hist, ["Date", "Index Value", "Change (pts)"], row=1)
+    hist_dates = sorted(history.keys())
+    prev = None
+    for r_idx, date in enumerate(hist_dates, start=2):
+        val = float(history[date])
+        chg = round(val - prev, 2) if prev is not None else 0.0
+        ws_hist.cell(row=r_idx, column=1, value=date)
+        ws_hist.cell(row=r_idx, column=2, value=round(val, 2))
+        ws_hist.cell(row=r_idx, column=3, value=chg)
+        prev = val
+    _style_data_rows(ws_hist, 2, len(hist_dates) + 1, 3)
+    _auto_width(ws_hist)
+
+    # ============================================================
+    # Sheet 5: Raw Fare Records
+    # ============================================================
+    ws_raw = wb.create_sheet("Raw Fares")
+    ws_raw.sheet_view.showGridLines = False
+    raw_headers = [
+        "Collection Date", "Collection Time", "Departure Date",
+        "Route", "Airline", "Source", "Lead Time (Days)",
+        "Base Fare (₹)", "Taxes (₹)", "Fees (₹)", "Total Fare (₹)", "Availability"
+    ]
+    _style_header(ws_raw, raw_headers, row=1)
+    for r_idx, rec in enumerate(raw_records, start=2):
+        ws_raw.cell(row=r_idx, column=1,  value=rec.collection_date)
+        ws_raw.cell(row=r_idx, column=2,  value=rec.collection_time)
+        ws_raw.cell(row=r_idx, column=3,  value=rec.departure_date)
+        ws_raw.cell(row=r_idx, column=4,  value=rec.route)
+        ws_raw.cell(row=r_idx, column=5,  value=rec.airline)
+        ws_raw.cell(row=r_idx, column=6,  value=rec.source)
+        ws_raw.cell(row=r_idx, column=7,  value=rec.lead_time)
+        ws_raw.cell(row=r_idx, column=8,  value=rec.base_fare)
+        ws_raw.cell(row=r_idx, column=9,  value=rec.taxes)
+        ws_raw.cell(row=r_idx, column=10, value=rec.fees)
+        ws_raw.cell(row=r_idx, column=11, value=rec.total_fare)
+        ws_raw.cell(row=r_idx, column=12, value=rec.availability)
+    if raw_records:
+        _style_data_rows(ws_raw, 2, len(raw_records) + 1, len(raw_headers))
+    _auto_width(ws_raw)
+
+    # ---- Stream the workbook ----
+    output = io.BytesIO()
+    wb.save(output)
+    output.seek(0)
+
+    filename = f"aeir_export_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"
+    return StreamingResponse(
+        output,
+        media_type="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )

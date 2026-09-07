@@ -1,103 +1,494 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>About — AEIR</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/static/css/landing.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aeir | Methodology</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/landing.css">
+
+    <style>
+        /* ---- Methodology page overrides & extras ---- */
+        .method-hero {
+            padding: 9rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+        .method-hero-bg {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+        .method-hero-bg .glow {
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 60%;
+            height: 100%;
+            background: radial-gradient(ellipse at 70% 40%,
+                rgba(56, 189, 248, 0.06) 0%,
+                transparent 65%);
+        }
+        .method-hero-bg .grid {
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+            background-size: 60px 60px;
+            mask-image: radial-gradient(ellipse 80% 80% at 50% 50%, black 30%, transparent 100%);
+        }
+        .method-hero-inner {
+            position: relative;
+            z-index: 1;
+            max-width: 680px;
+        }
+        .method-hero-inner h1 {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+        .method-hero-inner p {
+            font-size: 1.05rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+        }
+
+        /* Content sections */
+        .method-body {
+            padding: 0 0 6rem;
+        }
+        .method-section {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            gap: 3rem;
+            padding: 3rem 0;
+            border-top: 1px solid var(--border-subtle);
+            align-items: start;
+        }
+        .method-section:last-child {
+            border-bottom: 1px solid var(--border-subtle);
+        }
+        .method-label {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            position: sticky;
+            top: 80px;
+        }
+        .method-num {
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            text-transform: uppercase;
+        }
+        .method-label h2 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            letter-spacing: -0.01em;
+        }
+        .method-content p {
+            font-size: 0.95rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+        }
+        .method-content p:last-child { margin-bottom: 0; }
+
+        /* Formula card */
+        .formula-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 1.5rem 2rem;
+            margin: 1.25rem 0;
+            font-size: 1rem;
+            color: var(--text-primary);
+            font-variant-numeric: tabular-nums;
+            letter-spacing: 0.02em;
+        }
+        .formula-card .formula-line {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.92rem;
+            color: var(--accent);
+        }
+        .formula-card .formula-desc {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 0.75rem;
+            line-height: 1.6;
+        }
+
+        /* Weights table */
+        .weights-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.25rem;
+            font-size: 0.88rem;
+        }
+        .weights-table th {
+            padding: 0.6rem 1rem;
+            text-align: left;
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--border);
+        }
+        .weights-table td {
+            padding: 0.65rem 1rem;
+            color: var(--text-secondary);
+            border-bottom: 1px solid var(--border-subtle);
+            vertical-align: middle;
+        }
+        .weights-table tr:last-child td { border-bottom: none; }
+        .weights-table tr:hover td { background: rgba(255,255,255,0.02); }
+        .route-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            font-size: 0.85rem;
+        }
+
+        /* Pipeline diagram */
+        .pipeline-row {
+            display: flex;
+            align-items: stretch;
+            gap: 0.5rem;
+            margin: 1.25rem 0;
+            flex-wrap: wrap;
+        }
+        .pipe-step {
+            flex: 1;
+            min-width: 110px;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem;
+        }
+        .pipe-step-num {
+            font-size: 0.6rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--accent);
+            text-transform: uppercase;
+            margin-bottom: 0.4rem;
+        }
+        .pipe-step h4 {
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+        .pipe-step p {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 0.3rem;
+            line-height: 1.5;
+        }
+        .pipe-arrow {
+            flex-shrink: 0;
+            align-self: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            padding: 0 0.1rem;
+        }
+
+        /* Users grid */
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 0.75rem;
+            margin-top: 1.25rem;
+        }
+        .user-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-sm);
+            padding: 1rem 1.25rem;
+        }
+        .user-card h4 {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.3rem;
+        }
+        .user-card p {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+            margin: 0 !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 860px) {
+            .method-section {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            .method-label {
+                position: static;
+                flex-direction: row;
+                align-items: center;
+                gap: 1rem;
+            }
+            .method-label h2 { font-size: 1rem; }
+            .pipeline-row { flex-direction: column; }
+            .pipe-arrow { transform: rotate(90deg); align-self: flex-start; margin-left: 1.2rem; }
+        }
+    </style>
 </head>
 <body>
 
-    <div class="nav-wrapper" style="position: relative; top: 0; padding-top: 32px; background: linear-gradient(180deg, #2547c9 0%, #3f6be0 100%);">
-        <nav class="center-pill-nav">
-            <a href="/" class="pill-link">Home</a>
-            <a href="/about" class="pill-link">About Us</a>
-            <a href="/dashboard" class="pill-link">Explore</a>
-        </nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/" class="brand-logo">Aeir</a>
+            <div class="nav-center">
+                <a href="/" class="nav-link">Overview</a>
+                <a href="/dashboard" class="nav-link">Index</a>
+                <a href="/about" class="nav-link" style="color:var(--text-primary)">Methodology</a>
+            </div>
+            <div class="nav-right">
+                <a href="/dashboard" class="btn btn-secondary">Dashboard</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <div class="method-hero">
+        <div class="method-hero-bg">
+            <div class="glow"></div>
+            <div class="grid"></div>
+        </div>
+        <div class="container">
+            <div class="method-hero-inner reveal">
+                <p class="eyebrow" style="margin-bottom:1rem;">METHODOLOGY</p>
+                <h1>How the Aeir index is built.</h1>
+                <p>A transparent, open-pipeline approach to measuring domestic airfare movements in India — designed to complement official inflation methodology at higher frequency.</p>
+            </div>
+        </div>
     </div>
 
-    <header class="about-hero">
-        <h1>Why AEIR exists</h1>
-        <p>
-            A transparent, automated, daily-refreshed airfare price
-            index for India — built to complement, not replace,
-            official inflation measurement.
-        </p>
-    </header>
+    <!-- Body -->
+    <div class="method-body">
+        <div class="container">
 
-    <main class="about-content">
+            <!-- 01 The Problem -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">01</span>
+                    <h2>The Problem</h2>
+                </div>
+                <div class="method-content">
+                    <p>India's Consumer Price Index tracks air travel costs through periodic surveys that move far slower than actual fares. Airfares change by the hour based on demand, booking window, and route — a monthly or quarterly snapshot misses that volatility entirely.</p>
+                    <p>No public, verifiable, high-frequency airfare price index exists for domestic Indian aviation. Aeir is designed to fill that gap.</p>
+                </div>
+            </div>
 
-        <div class="about-block reveal">
-            <h2>The Problem</h2>
-            <p>
-                India's Consumer Price Index tracks air travel costs
-                through periodic surveys, which move far slower than
-                actual fares do. Airfares change by the hour based on
-                demand, booking window, and route — a monthly or
-                quarterly snapshot misses that volatility entirely.
-                Nobody publishes a transparent, verifiable, frequently
-                updated airfare index built specifically to inform
-                economic policy.
-            </p>
+            <!-- 02 Data Collection -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">02</span>
+                    <h2>Data Collection</h2>
+                </div>
+                <div class="method-content">
+                    <p>Aeir collects live fares automatically every 5 hours across the four highest-volume domestic routes in India, for multiple airlines and lead times (booking windows).</p>
+                    <div class="pipeline-row">
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Routes</div>
+                            <h4>4 City Pairs</h4>
+                            <p>DEL-BOM, DEL-BLR, BOM-BLR, DEL-HYD</p>
+                        </div>
+                        <span class="pipe-arrow">→</span>
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Airlines</div>
+                            <h4>4 Carriers</h4>
+                            <p>IndiGo, Air India, SpiceJet, Akasa Air</p>
+                        </div>
+                        <span class="pipe-arrow">→</span>
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Lead Times</div>
+                            <h4>5 Windows</h4>
+                            <p>T+1, T+7, T+15, T+30, T+45 days</p>
+                        </div>
+                    </div>
+                    <p>Each collection run generates up to 80 fare observations. New records are checked against existing data and deduplicated before storage.</p>
+                </div>
+            </div>
+
+            <!-- 03 Validation & Cleaning -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">03</span>
+                    <h2>Validation &amp; Cleaning</h2>
+                </div>
+                <div class="method-content">
+                    <p>Raw fares pass through a multi-stage validation and cleaning pipeline before entering the index calculation.</p>
+                    <div class="pipeline-row">
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Step 1</div>
+                            <h4>Schema Check</h4>
+                            <p>Required fields validated: route, airline, fare, lead time.</p>
+                        </div>
+                        <span class="pipe-arrow">→</span>
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Step 2</div>
+                            <h4>Range Filter</h4>
+                            <p>Fares outside ₹500–₹1,00,000 are excluded as anomalous.</p>
+                        </div>
+                        <span class="pipe-arrow">→</span>
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Step 3</div>
+                            <h4>IQR Outlier Removal</h4>
+                            <p>Statistical outliers removed within route/lead-time groups.</p>
+                        </div>
+                        <span class="pipe-arrow">→</span>
+                        <div class="pipe-step">
+                            <div class="pipe-step-num">Step 4</div>
+                            <h4>Deduplication</h4>
+                            <p>Exact duplicate observations are dropped.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 04 Index Construction -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">04</span>
+                    <h2>Index Construction</h2>
+                </div>
+                <div class="method-content">
+                    <p>Aeir uses a Laspeyres-style fixed-base price index. Each index expresses current fares as a ratio of fares in the base period, scaled to 100.</p>
+                    <div class="formula-card">
+                        <div class="formula-line">
+                            Route Index = (Avg Fare<sub>current</sub> / Avg Fare<sub>base</sub>) × 100
+                        </div>
+                        <div class="formula-desc">
+                            Computed separately for each route. A value above 100 means fares are higher than the base period; below 100 means they are lower.
+                        </div>
+                    </div>
+                    <div class="formula-card" style="margin-top:0.75rem;">
+                        <div class="formula-line">
+                            National APIx = Σ (Route Index<sub>i</sub> × Weight<sub>i</sub>)
+                        </div>
+                        <div class="formula-desc">
+                            Route indices are aggregated into a single national figure using demand-based weights. Weights reflect route importance in Indian domestic aviation.
+                        </div>
+                    </div>
+                    <p style="margin-top:1rem;">Lead-time indices follow the same structure but group observations by booking window (T+1, T+7, etc.) to isolate the effect of advance purchase on fares.</p>
+                </div>
+            </div>
+
+            <!-- 05 Route Weights -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">05</span>
+                    <h2>Route Weights</h2>
+                </div>
+                <div class="method-content">
+                    <p>The national index weights each route proportionally to its relative importance in India's domestic air travel demand.</p>
+                    <table class="weights-table">
+                        <thead>
+                            <tr>
+                                <th>Route</th>
+                                <th>City Pair</th>
+                                <th>Weight</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span class="route-badge">DEL → BOM</span></td>
+                                <td>Delhi — Mumbai</td>
+                                <td>0.35</td>
+                                <td>35%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="route-badge">DEL → BLR</span></td>
+                                <td>Delhi — Bengaluru</td>
+                                <td>0.25</td>
+                                <td>25%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="route-badge">BOM → BLR</span></td>
+                                <td>Mumbai — Bengaluru</td>
+                                <td>0.22</td>
+                                <td>22%</td>
+                            </tr>
+                            <tr>
+                                <td><span class="route-badge">DEL → HYD</span></td>
+                                <td>Delhi — Hyderabad</td>
+                                <td>0.18</td>
+                                <td>18%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <p style="margin-top:1rem;">Weights sum to 1.0 and are validated programmatically on every index computation. Route weight parameters are stored in <code style="font-size:0.82rem;background:var(--surface);padding:0.1rem 0.4rem;border-radius:4px;color:var(--accent);">data/route_weights.csv</code> and not hardcoded into the computation logic.</p>
+                </div>
+            </div>
+
+            <!-- 06 Who It's For -->
+            <div class="method-section reveal">
+                <div class="method-label">
+                    <span class="method-num">06</span>
+                    <h2>Built For</h2>
+                </div>
+                <div class="method-content">
+                    <p>Aeir is designed as a reference resource for anyone who needs a transparent, high-frequency view of Indian domestic airfare movements.</p>
+                    <div class="users-grid">
+                        <div class="user-card">
+                            <h4>Policymakers</h4>
+                            <p>A daily proxy for airfare inflation between official CPI survey cycles.</p>
+                        </div>
+                        <div class="user-card">
+                            <h4>Aviation Analysts</h4>
+                            <p>Track fare trends across routes, airlines, and booking windows.</p>
+                        </div>
+                        <div class="user-card">
+                            <h4>Researchers</h4>
+                            <p>Structured, deduplicated fare records with full historical coverage.</p>
+                        </div>
+                        <div class="user-card">
+                            <h4>Travellers</h4>
+                            <p>Understand whether current fares are elevated relative to normal levels.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /container -->
+    </div><!-- /method-body -->
+
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <span class="logo">Aeir</span>
+                <p>Airfare intelligence for India.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/dashboard">Dashboard</a>
+                <a href="/about">Methodology</a>
+            </div>
         </div>
-
-        <div class="about-block reveal">
-            <h2>What AEIR Does</h2>
-            <p>
-                AEIR automatically collects live fares across four
-                major domestic routes and four airlines every two
-                hours, cleans and deduplicates the data, and computes
-                route-level, lead-time, and a weighted national index
-                — all visible on the live dashboard with full
-                historical trend data.
-            </p>
-        </div>
-
-        <div class="about-block reveal">
-            <h2>Methodology</h2>
-            <p>
-                Each index is a ratio of current average fares to a
-                fixed base-period average, expressed on a 100-point
-                scale. Route indices isolate movement per city pair;
-                lead-time indices isolate how booking-window timing
-                tactics affect price, separate from genuine market
-                movement. The national index weights routes to reflect
-                overall travel demand.
-            </p>
-        </div>
-
-        <div class="about-block reveal">
-            <h2>Why It Matters for CPI</h2>
-            <p>
-                AEIR is designed as a higher-frequency proxy that can
-                sit alongside existing CPI transport sub-index
-                methodology — giving policymakers a daily read on
-                airfare inflation between official survey cycles,
-                without replacing the rigor of the official process.
-            </p>
-        </div>
-
-        <div class="about-block reveal">
-            <h2>Built For</h2>
-            <p>
-                Smart India Hackathon — a prototype demonstrating that
-                automated, transparent, real-time economic indicators
-                are achievable with an open pipeline: scraping,
-                cleaning, index construction, and a public dashboard,
-                end to end.
-            </p>
-        </div>
-
-    </main>
-
-    <footer class="landing-footer">
-        <span>AEIR &middot; Smart India Hackathon</span>
-        <a href="/dashboard" class="cta-button small">Get Data →</a>
     </footer>
 
     <script src="/static/js/landing.js"></script>
+
 </body>
 </html>
