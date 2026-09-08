@@ -106,21 +106,57 @@
                 </div>
             </div>
 
-            <!-- Historical Chart -->
-            <section class="section reveal">
+            <!-- Historical Chart + Lead-Time Chart (toggled) -->
+            <section class="section reveal" id="chart-section">
                 <div class="section-header">
                     <div>
                         <p class="eyebrow">HISTORICAL DATA</p>
-                        <h2>Aeir Index Trend</h2>
+                        <h2 id="chart-section-title">Aeir Index Trend</h2>
+                    </div>
+                    <!-- Chart toggle pills -->
+                    <div class="chart-toggle" role="group" aria-label="Chart type">
+                        <button class="chart-toggle-btn active" id="btn-trend"
+                                onclick="switchChartView('trend')">Trend</button>
+                        <button class="chart-toggle-btn" id="btn-leadtime"
+                                onclick="switchChartView('leadtime')">Lead-time comparison</button>
                     </div>
                 </div>
-                <div class="chart-card" id="history-chart-container">
-                    <canvas id="history-chart"></canvas>
-                    <div class="loading-placeholder" id="chart-loading">
-                        <div class="skeleton skel-text" style="width:140px;height:12px;"></div>
-                        <div class="skeleton skel-text" style="width:200px;height:10px;margin-top:6px;"></div>
+
+                <!-- Trend chart (visible by default) -->
+                <div id="view-trend">
+                    <div class="chart-card" id="history-chart-container">
+                        <canvas id="history-chart"></canvas>
+                        <div class="loading-placeholder" id="chart-loading">
+                            <div class="skeleton skel-text" style="width:140px;height:12px;"></div>
+                            <div class="skeleton skel-text" style="width:200px;height:10px;margin-top:6px;"></div>
+                        </div>
                     </div>
                 </div>
+
+                <!-- Keepa-style lead-time chart (hidden by default) -->
+                <div id="view-leadtime" style="display:none;">
+                    <div class="lt-chart-controls">
+                        <label for="lt-route-select" class="lt-route-label">Route</label>
+                        <select id="lt-route-select" class="lt-route-select" onchange="loadLeadTimeChart()">
+                            <option value="DEL-BOM">DEL → BOM</option>
+                            <option value="DEL-BLR">DEL → BLR</option>
+                            <option value="BOM-BLR">BOM → BLR</option>
+                            <option value="DEL-HYD">DEL → HYD</option>
+                        </select>
+                    </div>
+                    <div class="chart-card lt-chart-card" id="lt-chart-container" style="height:340px;">
+                        <canvas id="lt-chart"></canvas>
+                        <div class="loading-placeholder" id="lt-chart-loading">
+                            <div class="skeleton skel-text" style="width:140px;height:12px;"></div>
+                            <div class="skeleton skel-text" style="width:200px;height:10px;margin-top:6px;"></div>
+                        </div>
+                    </div>
+                    <!-- Legend pills rendered by JS below the chart -->
+                    <div id="lt-legend" class="lt-legend"></div>
+                </div>
+
+                <!-- Floating custom tooltip (Keepa-style) -->
+                <div id="lt-tooltip" class="lt-tooltip" style="display:none;"></div>
             </section>
 
             <!-- Route Explorer -->
@@ -146,27 +182,43 @@
                 </div>
             </section>
 
-            <!-- Lead Time Analysis -->
+            <!-- Sector-Wise Heatmap -->
             <section class="section reveal">
                 <div class="section-header">
                     <div>
-                        <p class="eyebrow">BOOKING WINDOW</p>
-                        <h2>Lead-Time Analysis</h2>
+                        <p class="eyebrow">SECTOR INTENSITY</p>
+                        <h2>2. Sector-wise heatmap</h2>
                     </div>
                 </div>
-                <div class="lead-time-grid" id="lead-time-grid">
-                    <div class="lead-card" style="opacity:0.4">
-                        <div class="skeleton" style="height:10px;width:90px;border-radius:4px;"></div>
-                        <div class="skeleton" style="height:28px;width:60px;border-radius:4px;margin-top:8px;"></div>
+                <div class="heatmap-card">
+                    <div id="heatmap-grid" class="heatmap-grid">
+                        <div class="loading-placeholder">Loading heatmap...</div>
                     </div>
-                    <div class="lead-card" style="opacity:0.25">
-                        <div class="skeleton" style="height:10px;width:90px;border-radius:4px;"></div>
-                        <div class="skeleton" style="height:28px;width:60px;border-radius:4px;margin-top:8px;"></div>
+                    <div class="heatmap-footer">
+                        Darker cells mean a pricier route on that day — spot which sectors are running hot at a glance.
+                    </div>
+                </div>
+            </section>
+
+            <!-- Back-Test: APIx vs DGCA -->
+            <section class="section reveal">
+                <div class="section-header">
+                    <div>
+                        <p class="eyebrow">BENCHMARK COMPARISON</p>
+                        <h2>4. Back-test: APIx vs DGCA</h2>
+                    </div>
+                </div>
+                <div class="chart-card" id="backtest-chart-container" style="height:320px;">
+                    <canvas id="backtest-chart"></canvas>
+                    <div class="loading-placeholder" id="backtest-loading">
+                        <div class="skeleton skel-text" style="width:140px;height:12px;"></div>
+                        <div class="skeleton skel-text" style="width:200px;height:10px;margin-top:6px;"></div>
                     </div>
                 </div>
             </section>
 
         </div><!-- /container -->
+
     </main>
 
     <footer>

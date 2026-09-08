@@ -75,10 +75,13 @@ def load_unified_data(
         print(f"Warning: Failed to load database data: {err}")
         df = pd.DataFrame()
 
-    # Filter out mock / fake records from live database output
+    # Filter out hand-seeded fake rows from sample_fares.csv only.
+    # 'Airline' and 'Mock' (capital M) = fake CSV seeds → exclude.
+    # 'mock' (lowercase) = live scheduler output via MockScraper → keep.
+    # 'google_flights' = real scraper → keep.
     if not df.empty and "source" in df.columns:
-        mock_sources = ["mock", "Mock", "Airline", "test"]
-        df = df[~df["source"].astype(str).str.strip().isin(mock_sources)]
+        fake_sources = ["Airline", "Mock", "test"]
+        df = df[~df["source"].astype(str).str.strip().isin(fake_sources)]
 
     # Fall back to sample_fares.csv only if live real data is empty
     if df.empty:

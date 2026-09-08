@@ -37,4 +37,4 @@ DATA_FILE = "data/raw_fares.csv"
 
 # "mock" -> synthetic data (MockScraper)
 # "google_flights" -> real data via fast-flights, filtered to AIRLINES above
-ACTIVE_SOURCE = "mock"
+ACTIVE_SOURCE = "google_flights"
