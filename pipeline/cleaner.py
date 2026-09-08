@@ -127,6 +127,11 @@ def clean_fares(df):
         subset=dedup_subset if dedup_subset else None
     )
 
-    return cleaned.reset_index(
+    data_mode = getattr(df, "data_mode", df.attrs.get("data_mode", "live"))
+
+    cleaned_df = cleaned.reset_index(
         drop=True
     )
+    cleaned_df.attrs["data_mode"] = data_mode
+    cleaned_df.data_mode = data_mode
+    return cleaned_df
